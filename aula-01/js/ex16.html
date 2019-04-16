@@ -1,0 +1,27 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="resultado"></div>
+
+    <script>
+        function ObtenhaMDC(a,b) {	
+		while(b != 0){
+			var m = parseInt(a%b);
+			a = b;
+			b = m;
+		}
+		return a;
+	}	
+        
+        window.onload = function() {
+            document.getElementById("resultado").innerHTML = ObtenhaMDC(81, 54);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="resultado"></div>
+
+    <script>
+        function ObtenhaProdutoDeInteirosUsandoSomas(a, b) {	
+		var potencia = 1;
+		var i = 1;
+		while(i <= y){
+			potencia = ObtenhaProdutoDeInteirosUsandoSomas(potencia,  x);
+			i++;
+		}
+		return potencia;
+	}
+		
+	function ObtenhaProdutoDeInteirosUsandoSomas(x, y){
+		var totalParcelas = x;
+		var parcela = y;
+		if(y < x){
+			totalParcelas = y;
+			parcela = x;
+		}
+		var i = 1;
+		var s = 0;
+		while(i <= totalParcelas){
+			s = s + parcela;
+			i++;
+		}
+		return parseInt(s);
+	
+	}
+        
+        window.onload = function() {
+            document.getElementById("resultado").innerHTML = ObtenhaProdutoDeInteirosUsandoSomas(3, 4);
+        };
+    </script>
+</body>
+</html>
