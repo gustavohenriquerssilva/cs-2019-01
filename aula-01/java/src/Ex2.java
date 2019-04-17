@@ -5,7 +5,7 @@ import java.math.*;
 public class Ex2 {
 	public static void main(String[] args){
 		int valorTestado = 153;
-		boolean resultado = EhPropriedade153(valorTestado);
+		boolean resultado = ehPropriedade153(valorTestado);
 		System.out.println(resultado);
 	}
 	
