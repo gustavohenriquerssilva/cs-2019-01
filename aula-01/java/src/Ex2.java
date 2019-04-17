@@ -9,7 +9,7 @@ public class Ex2 {
 		System.out.println(resultado);
 	}
 	
-	public static boolean EhPropriedade153(int valorTestado){
+	public static boolean ehPropriedade153(int valorTestado){
 		if(valorTestado > 999 || valorTestado < 100){
 			throw new IllegalArgumentException("Valor inserido não pode ser menor que 100 ou maior que 999");
 		}
