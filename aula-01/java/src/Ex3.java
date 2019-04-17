@@ -6,7 +6,7 @@ public class Ex3 {
 		int mes = 04;
 		int ano = 2019;
 		
-		int resultado = ObtenhaDiaDaSemana(dia, mes, ano);
+		int resultado = obtenhaDiaDaSemana(dia, mes, ano);
 		System.out.println(resultado);
 	}
 	
