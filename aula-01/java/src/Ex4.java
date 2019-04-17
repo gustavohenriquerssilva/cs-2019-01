@@ -8,7 +8,7 @@ public class Ex4 {
 		System.out.println(resultado);
 	}
 	
-	public static int ObtenhaResto(int x, int y){
+	public static int obtenhaResto(int x, int y){
 		if(y < 0 || x <= 0){
 			throw new IllegalArgumentException("Valores inválidos");
 		}
