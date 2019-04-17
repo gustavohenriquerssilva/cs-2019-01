@@ -1,5 +1,5 @@
 
-public class ex17 {
+public class Ex17 {
 	//TODO
 	//MDC 2
 }
