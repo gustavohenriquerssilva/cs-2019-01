@@ -10,7 +10,7 @@ public class Ex3 {
 		System.out.println(resultado);
 	}
 	
-	public static int ObtenhaDiaDaSemana(int dia, int mes, int ano ){
+	public static int obtenhaDiaDaSemana(int dia, int mes, int ano ){
 		if(dia > 31 || dia < 1){
 			throw new IllegalArgumentException("Dia inválido");
 		}
