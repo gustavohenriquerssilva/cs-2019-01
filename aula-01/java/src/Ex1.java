@@ -4,7 +4,7 @@ public class Ex1 {
 
 	public static void main(String[] args){
 		int valorTestado = -10;
-		boolean resultado = EhPropriedade3025(valorTestado);
+		boolean resultado = ehPropriedade3025(valorTestado);
 		System.out.println(resultado);
 	}
 	
