@@ -4,7 +4,7 @@ public class Ex4 {
 	public static void main(String[] args){
 		int x = 5;
 		int y = 3;
-		int resultado = ObtenhaResto(x, y);
+		int resultado = obtenhaResto(x, y);
 		System.out.println(resultado);
 	}
 	
