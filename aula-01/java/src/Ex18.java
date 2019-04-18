@@ -1,5 +1,0 @@
-
-public class Ex18 {
-	//TODO
-	//REGRA DE HORNER PARA AVALIAÇÃO DE POLINÔMIO
-}
