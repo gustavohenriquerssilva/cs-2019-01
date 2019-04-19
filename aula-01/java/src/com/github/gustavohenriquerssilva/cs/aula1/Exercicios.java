@@ -4,19 +4,20 @@ public class Exercicios {
 
 	public static void main(String[] args){
 		int valorTestado = 3025;
-		boolean resultado = EhPropriedade3025(valorTestado);
+		boolean resultado = ehPropriedade3025(valorTestado);
 		System.out.println(resultado);
 	}
 	
-	public static boolean EhPropriedade3025(int valorTestado) {
+	public static boolean ehPropriedade3025(int valorTestado) {
 		if(valorTestado > 9999 || valorTestado < 0) {
 			throw new IllegalArgumentException("Valor inserido não pode ser menor que zero ou maior que 9999");
 		}
 		
-		int centena = valorTestado / 100;
-		int dezena = valorTestado % 100;
-		int resultadoFinal = (centena + dezena)*(centena + dezena);
-		return valorTestado == resultadoFinal;
+		int centena = valorTestado/100;
+		int dezena = valorTestado%100;
+		int somaDosValores = centena + dezena
+		int potencia = somaDosValores * somaDosValores;
+		return valorTestado == potencia;
 	}
 	
 	public static boolean ehPropriedade153(int valorTestado) {
@@ -29,9 +30,9 @@ public class Exercicios {
 		int centenaAux = dezena/10;
 		int dezenaAux = dezena%10;
 		
-		int potencia1 = centena * centena * centena;
-		int potencia2 = centenaAux * centenaAux * centenaAux;
-		int potencia3 = dezenaAux * dezenaAux * dezenaAux;
+		int potenciaCubica1 = centena * centena * centena;
+		int potenciaCubica2 = centenaAux * centenaAux * centenaAux;
+		int potenciaCubica3 = dezenaAux * dezenaAux * dezenaAux;
 		
 		int resultadoFinal = potencia1 + potencia2 + potencia3;
 		return valorTestado == resultadoFinal;
