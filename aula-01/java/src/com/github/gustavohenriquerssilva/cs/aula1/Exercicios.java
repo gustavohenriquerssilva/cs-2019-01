@@ -3,7 +3,7 @@ package com.github.gustavohenriquerssilva.cs.aula1;
 public class Exercicios {
 
 	public static void main(String[] args){
-		int valorTestado = -10;
+		int valorTestado = 3025;
 		boolean resultado = EhPropriedade3025(valorTestado);
 		System.out.println(resultado);
 	}
