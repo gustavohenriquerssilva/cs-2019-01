@@ -41,17 +41,17 @@ public class Exercicios {
 
 	public static int obtenhaDiaDaSemana(int dia, int mes, int ano ) {
 		
-		boolean ehDiaInvalido = dia > 31 || dia < 1;			
+		final boolean ehDiaInvalido = dia > 31 || dia < 1;			
 		if(ehDiaValido(dia)) {
 			throw new IllegalArgumentException("Dia inválido");
 		}
 		
-		boolean ehMesValido = mes > 12 || mes < 1;
+		final boolean ehMesValido = mes > 12 || mes < 1;
 		if(ehMesValido(mes)) {
 			throw new IllegalArgumentException("Mês inválido");
 		}
 		
-		boolean ehAnoValido = ano < 1753;
+		final boolean ehAnoValido = ano < 1753;
 		if(ehAnoValido(ano)){
 			throw new IllegalArgumentException("Ano inválido");
 		}
