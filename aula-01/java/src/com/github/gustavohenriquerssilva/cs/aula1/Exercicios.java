@@ -40,15 +40,15 @@ public class Exercicios {
 	
 
 	public static int obtenhaDiaDaSemana(int dia, int mes, int ano ) {
-		if(dia > 31 || dia < 1) {
+		if(ehDiaValido(dia)) {
 			throw new IllegalArgumentException("Dia inválido");
 		}
 		
-		if(mes > 12 || mes < 1) {
+		if(ehMesValido(mes)) {
 			throw new IllegalArgumentException("Mês inválido");
 		}
 		
-		if(ano < 1753){
+		if(ehAnoValido(ano)){
 			throw new IllegalArgumentException("Ano inválido");
 		}
 		
@@ -58,6 +58,18 @@ public class Exercicios {
 		}
 		int x = dia + 1 * mes + (2*(mes + 1)/5) + ano + (ano/4) - (ano/100) + (ano/400);
 		return x%7;
+	}
+	
+	private static boolean ehDiaValido(int dia) {
+		return dia > 31 || dia < 1;
+	}
+	
+	private static boolean ehMesValido(int mes) {
+		return mes > 12 || mes < 1;
+	}
+	
+	private static boolean ehAnoValido(int ano) {
+		return ano < 1753;
 	}
 	
 	public static int obtenhaResto(int dividendo, int divisor) {
