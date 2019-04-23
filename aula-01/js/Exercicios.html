@@ -71,14 +71,17 @@
                 	return TypeError("Este parâmetro não é um número.");
             	}
             	
+		var ehDiaInvalido = dia > 31 || dia < 1; 
             	if(ehDiaValido(dia)) {
             		return RangeError("Data incorreta");
             	}
             	
+		var ehMesValido = mes > 12 || mes < 1;
             	if(ehMesValido(mes)) {
             		return RangeError("Mês incorreta");
             	}
             	
+		var ehAnoValido = ano < 1753;
             	if(ehAnoValido(ehAnoValido)) {
             		return RangeError("Ano incorreto");
             	}
@@ -94,18 +97,6 @@
 		resultado = Math.trunc(resultado);
 		
 		return resultado;    	
-	}
-	    
-    	function ehDiaValido(dia) {
-		return dia > 31 || dia < 1;
-	}
-	
-	function ehMesValido(mes) {
-		return mes > 12 || mes < 1;
-	}
-	
-	function ehAnoValido(ano) {
-		return ano < 1753;
 	}
 	
 	function obtenhaResto(dividendo, divisor) {
