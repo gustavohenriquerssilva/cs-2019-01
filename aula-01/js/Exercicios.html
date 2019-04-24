@@ -71,17 +71,17 @@
                 	return TypeError("Este parâmetro não é um número.");
             	}
             	
-		var ehDiaInvalido = dia > 31 || dia < 1; 
+		const ehDiaInvalido = dia > 31 || dia < 1; 
             	if(ehDiaValido(dia)) {
             		return RangeError("Data incorreta");
             	}
             	
-		var ehMesValido = mes > 12 || mes < 1;
+		const ehMesValido = mes > 12 || mes < 1;
             	if(ehMesValido(mes)) {
             		return RangeError("Mês incorreta");
             	}
             	
-		var ehAnoValido = ano < 1753;
+		const ehAnoValido = ano < 1753;
             	if(ehAnoValido(ehAnoValido)) {
             		return RangeError("Ano incorreto");
             	}
