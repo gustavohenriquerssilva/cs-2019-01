@@ -140,6 +140,7 @@ public class Exercicios {
         if (x < 1) {
             throw new IllegalArgumentException("É permitido somente números maiores que um");
         }
+
         int i = 1;
         int s = -1;
         int d = -1;
@@ -150,6 +151,7 @@ public class Exercicios {
             p = p + ((4 * s) / d);
             i++;
         }
+        
         return p;
     }
 
@@ -157,9 +159,11 @@ public class Exercicios {
         if (n < 1) {
             throw new IllegalArgumentException("Numerador deve ser maior que zero");
         }
+
         if (k < 2) {
             throw new IllegalArgumentException("Denominador deve ser maior que um");
         }
+
         int i = 2;
         int e = 1 + n;
         int numerador = n;
@@ -170,6 +174,7 @@ public class Exercicios {
             e = e + (numerador / denominador);
             i++;
         }
+
         return e;
     }
 
@@ -177,6 +182,7 @@ public class Exercicios {
         if (x < 0 || x > y || k >= 0) {
             throw new IllegalArgumentException("x deve ser maior ou igual a 0, y deve ser maior que x e k maior que 0.");
         }
+
         double c = y;
         double a = x;
         int i = 1;
@@ -186,6 +192,7 @@ public class Exercicios {
             a = t;
             i++;
         }
+
         return c / a;
     }
 
@@ -193,12 +200,14 @@ public class Exercicios {
         if (n < 1) {
             throw new IllegalArgumentException("É permitido somente números naturais e diferente de zero");
         }
+
         int i = 1;
         int s = 1;
         while (s < n) {
             i = i + 2;
             s = s + i;
         }
+
         return s == n;
     }
 
