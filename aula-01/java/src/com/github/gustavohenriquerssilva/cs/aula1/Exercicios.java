@@ -151,7 +151,7 @@ public class Exercicios {
             p = p + ((4 * s) / d);
             i++;
         }
-        
+
         return p;
     }
 
