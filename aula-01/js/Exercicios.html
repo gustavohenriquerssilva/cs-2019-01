@@ -39,9 +39,9 @@
             return RangeError("Valor inserido não pode ser menor que zero ou maior que 9999.");
         }
 
-        var centena = valorTestado / 100;
-        var dezena = valorTestado % 100;
-        var resultadoFinal = (centena + dezena) * (centena + dezena);
+        const centena = valorTestado / 100;
+        const dezena = valorTestado % 100;
+        const resultadoFinal = (centena + dezena) * (centena + dezena);
         return valorTestado == resultadoFinal;
     }
 
