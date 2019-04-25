@@ -8,16 +8,16 @@ public class Exercicios {
         System.out.println(resultado);
     }
 
-    public static boolean ehPropriedade3025(int valorTestado) {
+    public static boolean ehPropriedade3025(final int valorTestado) {
         if (valorTestado > 9999 || valorTestado < 0) {
             throw new IllegalArgumentException("Valor inserido não pode ser " +
                     "menor que zero ou maior que 9999");
         }
 
-        int centena = valorTestado / 100;
-        int dezena = valorTestado % 100;
-        int somaDosValores = centena + dezena
-        int potencia = somaDosValores * somaDosValores;
+        final int centena = valorTestado / 100;
+        final int dezena = valorTestado % 100;
+        final int somaDosValores = centena + dezena
+        final int potencia = somaDosValores * somaDosValores;
         return valorTestado == potencia;
     }
 
