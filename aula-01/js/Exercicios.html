@@ -53,6 +53,7 @@
         if (numero < 100 || numero > 999) {
             return Error("Valor inserido não pode ser menor que 100 ou maior que 999.");
         }
+        
         var centena = numero / 100;
         var centena = Math.trunc(centena);
         var dezenaAux = numero % 100;
