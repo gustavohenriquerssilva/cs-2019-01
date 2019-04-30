@@ -10,31 +10,34 @@ public class Exercicios {
 	
 	public static boolean ehPropriedade3025(int valorTestado) {
 		if(valorTestado > 9999 || valorTestado < 0) {
-			throw new IllegalArgumentException("Valor inserido não pode ser menor que zero ou maior que 9999");
+			throw new IllegalArgumentException("Valor inserido não pode ser " +
+					"menor que zero ou maior que 9999");
 		}
 		
-		int centena = valorTestado/100;
-		int dezena = valorTestado%100;
-		int somaDosValores = centena + dezena
-		int potencia = somaDosValores * somaDosValores;
+		final int centena = valorTestado/100;
+		final int dezena = valorTestado%100;
+		final int somaDosValores = centena + dezena;
+		final int potencia = somaDosValores * somaDosValores;
+		
 		return valorTestado == potencia;
 	}
 	
 	public static boolean ehPropriedade153(int valorTestado) {
 		if(valorTestado > 999 || valorTestado < 100){
-			throw new IllegalArgumentException("Valor inserido não pode ser menor que 100 ou maior que 999");
+			throw new IllegalArgumentException("Valor inserido não pode ser" + "menor que 100 ou maior que 999");
 		}
 		
-		int centena = valorTestado/100;
-		int dezena = valorTestado%100;
-		int centenaAux = dezena/10;
-		int dezenaAux = dezena%10;
+		final int centena = valorTestado/100;
+		final int dezena = valorTestado%100;
+		final int centenaAux = dezena/10;
+		final int dezenaAux = dezena%10;
 		
-		int potenciaCubica1 = centena * centena * centena;
-		int potenciaCubica2 = centenaAux * centenaAux * centenaAux;
-		int potenciaCubica3 = dezenaAux * dezenaAux * dezenaAux;
+		final int potenciaCubica1 = centena * centena * centena;
+		final int potenciaCubica2 = centenaAux * centenaAux * centenaAux;
+		final int potenciaCubica3 = dezenaAux * dezenaAux * dezenaAux;
 		
-		int resultadoFinal = potencia1 + potencia2 + potencia3;
+		final int resultadoFinal = potenciaCubica1 + potenciaCubica2 + potenciaCubica3;
+		
 		return valorTestado == resultadoFinal;
 	}
 	
@@ -42,17 +45,17 @@ public class Exercicios {
 	public static int obtenhaDiaDaSemana(int dia, int mes, int ano ) {
 		
 		final boolean ehDiaInvalido = dia > 31 || dia < 1;			
-		if(ehDiaValido(dia)) {
+		if(ehDiaInvalido) {
 			throw new IllegalArgumentException("Dia inválido");
 		}
 		
-		final boolean ehMesValido = mes > 12 || mes < 1;
-		if(ehMesValido(mes)) {
+		final boolean ehMesInvalido = mes > 12 || mes < 1;
+		if(ehMesInvalido) {
 			throw new IllegalArgumentException("Mês inválido");
 		}
 		
-		final boolean ehAnoValido = ano < 1753;
-		if(ehAnoValido(ano)){
+		final boolean ehAnoInvalido = ano < 1753;
+		if(ehAnoInvalido){
 			throw new IllegalArgumentException("Ano inválido");
 		}
 		
@@ -60,7 +63,8 @@ public class Exercicios {
 			mes = mes + 12; 
 			ano = ano - 1; 
 		}
-		int x = dia + 1 * mes + (2*(mes + 1)/5) + ano + (ano/4) - (ano/100) + (ano/400);
+		final int x = dia + 1 * mes + (2*(mes + 1)/5) + ano + (ano/4) - (ano/100) + (ano/400);
+		
 		return x%7;
 	}
 	
@@ -81,12 +85,14 @@ public class Exercicios {
 		if(numero < 1) {
 			throw new IllegalArgumentException("É permitido somente números naturais e diferente de zero");
 		}
+		
 		int i = 2;
 		int s = 1;
 		while(i <= numero ) {
 			s = s +  i;
 			i++;
 		}
+		
 		return s;
 	}
 	
@@ -94,12 +100,14 @@ public class Exercicios {
 		if(numero < 1) {
 			throw new IllegalArgumentException("É permitido somente números naturais e diferente de zero");
 		}
+		
 		int i = 2;
 		int f = 1;
 		while(i <= numero ) {
 			f = f*i;
 			i++;
 		}
+		
 		return f;
 	}
 	
@@ -107,18 +115,21 @@ public class Exercicios {
 		if(x < 0 || y < 0) {
 			throw new IllegalArgumentException("É permitido somente números naturais");
 		}
+		
 		int totalParcelas = x;
 		int parcela = y;
 		if(y < x){
 			totalParcelas = y;
 			parcela = x;
 		}
+		
 		int i = 1;
 		int s = 0;
 		while(i <= totalParcelas) {
 			s = s + parcela;
 			i++;
 		}
+		
 		return s;
 	}
 	
@@ -126,6 +137,7 @@ public class Exercicios {
 		if(x < 0 || y < 0) {
 			throw new IllegalArgumentException("É permitido somente números naturais");
 		}
+		
 		int potencia = 1;
 		int i = 1;
 		while(i <= y) {
@@ -139,6 +151,7 @@ public class Exercicios {
 		if(x < 1) {
 			throw new IllegalArgumentException("É permitido somente números maiores que um");
 		}
+		
 		int i = 1;
 		int s = -1;
 		int d = -1;
@@ -149,6 +162,7 @@ public class Exercicios {
 			p = p + ((4 * s)/d);
 			i++;
 		}
+		
 		return p;
 	}
 	
@@ -156,9 +170,11 @@ public class Exercicios {
 		if(n < 1) {
 			throw new IllegalArgumentException("Numerador deve ser maior que zero");
 		}
+		
 		if(k < 2) {
 			throw new IllegalArgumentException("Denominador deve ser maior que um");
 		}
+		
 		int i = 2;
 		int e = 1 + n;
 		int numerador = n;
@@ -169,13 +185,15 @@ public class Exercicios {
 			e = e + (numerador/denominador);
 			i++;
 		}
+		
 		return e;
 	}
 	
-	private static double obtenhaRazaoAurea(int x, int y, int k) {
+	public static double obtenhaRazaoAurea(int x, int y, int k) {
 		if(x < 0 || x > y || k >= 0) {
 			throw new IllegalArgumentException("x deve ser maior ou igual a 0, y deve ser maior que x e k maior que 0.");
 		}
+		
 		double c = y;
 		double a = x;
 		int i = 1;
@@ -185,38 +203,44 @@ public class Exercicios {
 			a = t;
 			i++;
 		}
+		
 		return c/a;
 	}
 	
-	private static boolean ehQuadradoPerfeito(int n) {
+	public static boolean ehQuadradoPerfeito(int n) {
 		if(n < 1) {
 			throw new IllegalArgumentException("É permitido somente números naturais e diferente de zero");
 		}
+		
 		int i = 1;
 		int s = 1;
 		while(s < n) {
 			i = i + 2;
 			s = s + i;
 		}
+		
 		return s == n;
 	}
 	
-	private static int obtenhaRaizQuadrada(int n, int i) {
+	public static int obtenhaRaizQuadrada(int n, int i) {
 		if(n < 0) {
 			throw new IllegalArgumentException("É permitido somente números naturais");
 		}
+		
 		int r = 1;
 		while(0 <= i) {
 			r = (r + (n/r)) / 2;
 			i--;
 		}
+		
 		return r;
 	}
 	
-	private static boolean ehNumeroPrimo(int n) {
+	public static boolean ehNumeroPrimo(int n) {
 		if(n <= 1) {
 			throw new IllegalArgumentException("É permitido somente números maiores que um");
 		}
+		
 		int i = 2;
 		while(i < n) {
 			if(n%i == 0) {
@@ -224,30 +248,35 @@ public class Exercicios {
 			}
 			i++;
 		}
+		
 		return true;
 	}
 	
-	private static int obtenhaMDC(int a, int b) {
+	public static int obtenhaMDC(int a, int b) {
 		if(b > a || b <= 0) {
 			throw new IllegalArgumentException("Valores informados estão incorretos");
 		}
+		
 		while(b != 0) {
 			int m = a%b;
 			a = b;
 			b = m;
 		}
+		
 		return a;
 	}
 	
-	private static int obtenhaFibonacci(int n) {
+	public static int obtenhaFibonacci(int n) {
 		if(n < 0) {
 			throw new IllegalArgumentException("É permitido somente valor inteiro");
 		}
+		
 		int a = 0;
 		int c = 1;
 		if(n == 0 || n == 1) {
 			return n;
 		}
+		
 		int i = 2;
 		while(i <= n) {
 			int t = c;
@@ -255,32 +284,35 @@ public class Exercicios {
 			a = t;
 			i++;
 		}
-		return c;
 		
+		return c;		
 	}
 	
-	private static boolean ehCPFValido(int[] digitoCPF) {
+	public static boolean ehCPFValido(int[] digitoCPF) {
 		if(digitoCPF.length != 11) {
       			throw new IllegalArgumentException("É permitido somente CPF de 11 dígitos");
 		}
-		int j = (digitoCPF[0])+ (2*digitoCPF[1]) + (3*digitoCPF[2]) + (4*digitoCPF[3]) + (5*digitoCPF[4]) + (6*digitoCPF[5]) + (7*digitoCPF[6]) + (8*digitoCPF[7])  + (9*digitoCPF[8]);
-		int k = (2*digitoCPF[1]) + (3*digitoCPF[2]) + (4*digitoCPF[3]) + (5*digitoCPF[4]) + (6*digitoCPF[5]) + (7*digitoCPF[6]) + (8*digitoCPF[7])  + (9*digitoCPF[8]) + (10*digitoCPF[9]);
-		int dj = obtenhaResto(obtenhaResto(j, 11), 10);
-		int dk = obtenhaResto(obtenhaResto(k, 11), 10);
-		return (dj == digitoCPF[9] && dk == digitoCPF[10]);
 		
+		final int j = (digitoCPF[0])+ (2*digitoCPF[1]) + (3*digitoCPF[2]) + (4*digitoCPF[3]) + (5*digitoCPF[4]) + (6*digitoCPF[5]) + (7*digitoCPF[6]) + (8*digitoCPF[7])  + (9*digitoCPF[8]);
+		final int k = (2*digitoCPF[1]) + (3*digitoCPF[2]) + (4*digitoCPF[3]) + (5*digitoCPF[4]) + (6*digitoCPF[5]) + (7*digitoCPF[6]) + (8*digitoCPF[7])  + (9*digitoCPF[8]) + (10*digitoCPF[9]);
+		final int dj = obtenhaResto(obtenhaResto(j, 11), 10);
+		final int dk = obtenhaResto(obtenhaResto(k, 11), 10);
+		
+		return (dj == digitoCPF[9] && dk == digitoCPF[10]);
 	}	
 	
-	private static int[] obtenhaArray(String n) {
-		String numeroEmTexto = n;
-		int[] array = new int[11];
+	public static int[] obtenhaArray(String n) {
+		final String numeroEmTexto = n;
+		final int[] array = new int[11];
+		
 		for (int i = 0; i < numeroEmTexto.length(); i++) {
 		    array[i] = Character.getNumericValue(numeroEmTexto.charAt(i));
 		}
+		
 		return array;
 	}
 	
-	private static boolean ehCPFValido2(int[] digitoCPF) {
+	public static boolean ehCPFValido2(int[] digitoCPF) {
 		int c = 7;
 		int p = digitoCPF[8];
 		int s = digitoCPF[8];
@@ -289,8 +321,10 @@ public class Exercicios {
 			s = s + p;
 			c--;
 		}
+		
 		int j = obtenhaResto(obtenhaResto(s, 11), 10);
 		int k = obtenhaResto(obtenhaResto(s - p + (9 * digitoCPF[9]), 11), 10);
+		
 		return j == digitoCPF[9] && k == digitoCPF[10];		
 	}	
 }
