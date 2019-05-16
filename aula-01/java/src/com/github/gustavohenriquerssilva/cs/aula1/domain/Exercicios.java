@@ -1,4 +1,4 @@
-package com.github.gustavohenriquerssilva.cs.aula1;
+package com.github.gustavohenriquerssilva.cs.aula1.domain;
 
 public class Exercicios {
 
@@ -8,6 +8,15 @@ public class Exercicios {
 		System.out.println(resultado);
 	}
 	
+	/**
+	 * Função que verifica se o quadrado da soma das dezenas da entrada resulta no
+	 * próprio número
+	 * 
+	 * @param valorTestado O valor passado para ser avaliado.
+	 * 
+	 * @return Resposta se o valor corresponde a propriedade 3025.
+	 * @throws IllegalArgumentException Se é menor que zero ou maior que 9999.
+	 */
 	public static boolean ehPropriedade3025(int valorTestado) {
 		if(valorTestado > 9999 || valorTestado < 0) {
 			throw new IllegalArgumentException("Valor inserido não pode ser " +
@@ -22,6 +31,14 @@ public class Exercicios {
 		return valorTestado == potencia;
 	}
 	
+	/**
+	 * Verfica se o número passado satisfaz a propriedade 153
+	 * 
+	 * @param valorTestado O valor passado para ser avaliado.
+	 * 
+	 * @return Resposta se o valor corresponde a propriedade 3025.
+	 * @throws IllegalArgumentException Se é menor que 100 ou maior que 999.
+	 */
 	public static boolean ehPropriedade153(int valorTestado) {
 		if(valorTestado > 999 || valorTestado < 100){
 			throw new IllegalArgumentException("Valor inserido não pode ser" + "menor que 100 ou maior que 999");
@@ -41,7 +58,18 @@ public class Exercicios {
 		return valorTestado == resultadoFinal;
 	}
 	
-
+	/**
+	 * Algoritmo que define o dia da semana para uma data 
+	 * 
+	 * @param dia O dia avaliado.
+	 * @param mes O mês avaliado.
+	 * @param ano O ano avaliado
+	 *
+	 * @return Dia da semana corresponde ao dia, mês e ano passado.
+	 * @throws IllegalArgumentException Se o dia menor que 1 ou maior que 31.
+	 * @throws IllegalArgumentException Se o mês menor que 1 ou maior que 12.
+	 * @throws IllegalArgumentException Se o ano menor que 1753.
+	 */
 	public static int obtenhaDiaDaSemana(int dia, int mes, int ano ) {
 		
 		final boolean ehDiaInvalido = dia > 31 || dia < 1;			
@@ -68,6 +96,15 @@ public class Exercicios {
 		return x%7;
 	}
 	
+	/**
+	 * Função matemática que retorna o resto da divisão
+	 * 
+	 * @param divisor O divisor da divisão
+	 * @param dividendo O dividendo da divisão
+	 *
+	 * @return O resto da divisão
+	 * @throws IllegalArgumentException Se o dividendo for menor que zero ou divisor maior que um
+	 */
 	public static int obtenhaResto(int dividendo, int divisor) {
 		if(divisor < 0 || dividendo <= 0) {
 			throw new IllegalArgumentException("Divisor deve ser maior que 0 e dividendo deve ser maior ou igual a 0.");
@@ -81,6 +118,15 @@ public class Exercicios {
 		return s;
 	}
 	
+	/**
+	 * Função matemática que soma primeiros números naturais 
+	 * 
+	 * @param numero O valor a ser avaliado
+	 *
+	 * @return O somatório para os primeiros k naturais
+	 * @throws IllegalArgumentException Se o numero for menor que um
+	 *
+	 */
 	public static int obtenhaSomaPrimeirosNaturais(int numero) {
 		if(numero < 1) {
 			throw new IllegalArgumentException("É permitido somente números naturais e diferente de zero");
@@ -96,6 +142,14 @@ public class Exercicios {
 		return s;
 	}
 	
+	/**
+	 * Função matemática que obtém o fatorial de um número natural.
+	 * 
+	 * @param numero O valor a ser encontrado o fatorial corresponde
+	 *
+	 * @return O fatorial do número natural
+	 * @throws IllegalArgumentException Se o numero for menor que um
+	 */
 	public static int obtenhaFatorial(int numero) {
 		if(numero < 1) {
 			throw new IllegalArgumentException("É permitido somente números naturais e diferente de zero");
@@ -111,6 +165,16 @@ public class Exercicios {
 		return f;
 	}
 	
+	/**
+	 * Função matemática que obtém o produto de dois inteiros positivos
+	 * 
+	 * @param a O primeiro valor da multiplicação
+	 * @param b O segundo valor da multiplicação
+	 *
+	 * @return O produto dos dois números
+	 * @throws IllegalArgumentException Se o a ou b forem menores que zero
+	 *
+	 */
 	public static int obtenhaProdutoDeInteirosUsandoSomas(int x, int y) {
 		if(x < 0 || y < 0) {
 			throw new IllegalArgumentException("É permitido somente números naturais");
@@ -133,6 +197,16 @@ public class Exercicios {
 		return s;
 	}
 	
+	/**
+	 * Função matemática que implementa potência usando apenas somas.
+	 * 
+	 * @param x O valor da base
+	 * @param y O valor da potência
+	 *
+	 * @return O resultado da potencia
+	 * @throws IllegalArgumentException Se o x ou y forem menores que zero
+	 *
+	 */
 	public static int obtenhaPotenciaUsandoAsSomas(int x, int y) {
 		if(x < 0 || y < 0) {
 			throw new IllegalArgumentException("É permitido somente números naturais");
@@ -147,6 +221,14 @@ public class Exercicios {
 		return potencia;
 	}
 	
+	/**
+	 * Função matemática que obtém valor de pi
+	 * 
+	 * @param valorDePrecisao O valor de precisão para o pi
+	 *
+	 * @return O valor de pi
+	 * @throws IllegalArgumentException Se o valor de precissão for menor que um
+	 */
 	public static double obtenhaValorPi(int x) {
 		if(x < 1) {
 			throw new IllegalArgumentException("É permitido somente números maiores que um");
@@ -166,6 +248,17 @@ public class Exercicios {
 		return p;
 	}
 	
+	/** 
+	 * Função matemática que obtém valor do logaritmo 
+	 * 
+	 * @param n O valor é númerador
+	 * @param k O valor é denominador
+	 *
+	 * @return O valor do logaritmo
+	 * @throws IllegalArgumentException Se o valor n for menor que 1
+	 * @throws IllegalArgumentException Se o valor k for menor que 2
+	 *
+	 */
 	public static int obtenhaLogaritmoNatural(int n, int k) {
 		if(n < 1) {
 			throw new IllegalArgumentException("Numerador deve ser maior que zero");
@@ -189,6 +282,16 @@ public class Exercicios {
 		return e;
 	}
 	
+	/** 
+	 * Função matemática que obtém razão áurea
+	 * 
+	 * @param x O valor do primeiro inteiro positivo
+	 * @param y O valor do segundo inteiro positivo
+	 * @param k O valor da precisão desejada
+	 *
+	 * @return O valor da razão áurea
+	 * @throws IllegalArgumentException Se o valor x for menor que zero ou y for menor que x ou k for menor que 1
+	 */
 	public static double obtenhaRazaoAurea(int x, int y, int k) {
 		if(x < 0 || x > y || k >= 0) {
 			throw new IllegalArgumentException("x deve ser maior ou igual a 0, y deve ser maior que x e k maior que 0.");
@@ -207,6 +310,15 @@ public class Exercicios {
 		return c/a;
 	}
 	
+	/** 
+	 * Função matemática diz que um quadrado perfeito n^2 satisfaz a equação.
+	 * 
+	 * @param n O valor a ser testado.
+	 *
+	 * @return Retorna verdadeiro se o número fornecido é um quadrado perfeito.
+	 * @throws IllegalArgumentException Se o valor n for menor que 1.
+	 *
+	 */
 	public static boolean ehQuadradoPerfeito(int n) {
 		if(n < 1) {
 			throw new IllegalArgumentException("É permitido somente números naturais e diferente de zero");
@@ -222,6 +334,17 @@ public class Exercicios {
 		return s == n;
 	}
 	
+	
+	/** 
+	 * Função matemática que obtém a raiz quadrada do valor
+	 * 
+	 * @param n O valor de entrada 
+	 * @param i O valor de precisão 
+	 *
+	 * @returns {boolean} Retorna verdadeiro se o número fornecido é um quadrado perfeito.
+	 * @throws IllegalArgumentException Se o valor n for menor que zero.
+	 *
+	 */
 	public static int obtenhaRaizQuadrada(int n, int i) {
 		if(n < 0) {
 			throw new IllegalArgumentException("É permitido somente números naturais");
@@ -236,6 +359,15 @@ public class Exercicios {
 		return r;
 	}
 	
+	/** 
+	 * Função matemática que retorna se o valor é primo
+	 * 
+	 * @param n O valor de entrada 
+	 *
+	 * @return Retorna verdadeiro se o número fornecido é primo
+	 * @throws IllegalArgumentException Se o valor n for menor ou igual a um.
+	 *
+	 */
 	public static boolean ehNumeroPrimo(int n) {
 		if(n <= 1) {
 			throw new IllegalArgumentException("É permitido somente números maiores que um");
@@ -252,6 +384,16 @@ public class Exercicios {
 		return true;
 	}
 	
+	/** 
+	 * Função matemática que obtém o MDC entre dois inteiros positivos e não nulos é o maior valor dentre os divisores comuns entre eles.
+	 * 
+	 * @param a O valor do primerio número a ser avaliado
+	 * @param b O valor do segundo número a ser avaliado
+	 *
+	 * @return Retorna o mdc
+	 * @throws IllegalArgumentException Se o valor n for menor ou igual a um.
+	 *
+	 */
 	public static int obtenhaMDC(int a, int b) {
 		if(b > a || b <= 0) {
 			throw new IllegalArgumentException("Valores informados estão incorretos");
