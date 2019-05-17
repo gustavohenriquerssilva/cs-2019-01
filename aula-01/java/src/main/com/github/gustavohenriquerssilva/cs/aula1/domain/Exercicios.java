@@ -1,4 +1,4 @@
-package com.github.gustavohenriquerssilva.cs.aula1.domain;
+package main.com.github.gustavohenriquerssilva.cs.aula1.domain;
 
 public class Exercicios {
 
