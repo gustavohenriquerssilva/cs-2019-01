@@ -1,6 +1,6 @@
-package main.com.github.gustavohenriquerssilva.cs.aula1.application.console;
+package main.java.com.github.gustavohenriquerssilva.cs.aula1.application.console;
 
-import main.com.github.gustavohenriquerssilva.cs.aula1.domain.Exercicios;
+import main.java.com.github.gustavohenriquerssilva.cs.aula1.domain.Exercicios;
 
 
 public final class ProgramaExercicio {

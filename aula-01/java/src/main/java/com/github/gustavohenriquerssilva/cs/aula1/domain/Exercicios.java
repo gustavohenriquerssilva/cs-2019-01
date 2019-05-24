@@ -1,4 +1,4 @@
-package main.com.github.gustavohenriquerssilva.cs.aula1.domain;
+package main.java.com.github.gustavohenriquerssilva.cs.aula1.domain;
 
 public class Exercicios {
 
@@ -103,12 +103,21 @@ public class Exercicios {
 	 * @param dividendo O dividendo da divisão
 	 *
 	 * @return O resto da divisão
-	 * @throws IllegalArgumentException Se o dividendo for menor que zero ou divisor maior que um
+	 * @throws IllegalArgumentException Se o dividendo for menor que zero
+	 * @throws IllegalArgumentException Se o divisor for menor que um
 	 */
 	public static int obtenhaResto(int dividendo, int divisor) {
-		if(divisor < 0 || dividendo <= 0) {
-			throw new IllegalArgumentException("Divisor deve ser maior que 0 e dividendo deve ser maior ou igual a 0.");
+		
+		final boolean ehDividendoValido = dividendo < 0;
+		if(ehDividendoValido) {
+			throw new IllegalArgumentException("Dividendo deve ser maior ou igual a 0");
 		}
+		
+		final boolean ehDivisorValido = divisor < 1;
+		if(ehDivisorValido) {
+			throw new IllegalArgumentException("Divisor deve ser maior que 0");
+		}
+
 		
 		int s = dividendo;
 		while(divisor <= s ) {
