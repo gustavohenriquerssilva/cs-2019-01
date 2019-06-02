@@ -200,32 +200,32 @@ function obtenhaFatorial(numero) {
 /**
  * Função matemática que obtém o produto de dois inteiros positivos
  * 
- * @param a O primeiro valor da multiplicação
- * @param b O segundo valor da multiplicação
+ * @param multiplicador O primeiro valor da multiplicação
+ * @param multiplicando O segundo valor da multiplicação
  *
  * @returns {int} O produto dos dois números
  *
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
- * @throws {RangeError} Se o a ou b forem menores que zero
+ * @throws {RangeError} Se o multiplicador ou multiplicando forem menores que zero
  */
-function obtenhaProdutoDeInteirosUsandoSomas(a, b) {
-	if (typeof a != 'number' || typeof b != 'number') {
+function obtenhaProdutoDeInteirosUsandoSomas(multiplicador, multiplicando) {
+	if (typeof multiplicador != 'number' || typeof multiplicando != 'number') {
 		return TypeError("Este(s) parâmetro(s) não é um número.");
 	}
 
-	if (a < 0 || b < 0) {
+	if (multiplicador < 0 || multiplicando < 0) {
 		return RangeError("É permitido somente números naturais.");
 	}
 
 	var totalParcelas;
 	var parcela;
 
-	totalParcelas = a;
-	parcela = b;
+	totalParcelas = multiplicador;
+	parcela = multiplicando;
 
-	if (b < a) {
-		totalParcelas = b;
-		parcela = a;
+	if (multiplicando < multiplicador) {
+		totalParcelas = multiplicando;
+		parcela = multiplicador;
 	}
 
 	var i;
@@ -245,27 +245,27 @@ function obtenhaProdutoDeInteirosUsandoSomas(a, b) {
 /**
  * Função matemática que implementa potência usando apenas somas.
  * 
- * @param x O valor da base
- * @param y O valor da potência
+ * @param base O valor da base
+ * @param expoente O valor da potência
  *
  * @returns {int} O resultado da potencia
  *
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
- * @throws {RangeError} Se o x ou y forem menores que zero
+ * @throws {RangeError} Se o base ou expoente forem menores que zero
  */
-function obtenhaPotenciaUsandoAsSomas(x, y) {
-	if (typeof x != 'number' || typeof y != 'number') {
+function obtenhaPotenciaUsandoAsSomas(base, expoente) {
+	if (typeof base != 'number' || typeof expoente != 'number') {
 		return TypeError("Este(s) parâmetro(s) não é um número.");
 	}
 
-	if (x < 0 || y < 0) {
+	if (base < 0 || expoente < 0) {
 		return RangeError("É permitido somente números naturais.");
 	}
 
 	var potencia = 1;
 	var i = 1;
-	while (i <= y) {
-		potencia = obtenhaProdutoDeInteirosUsandoSomas(potencia, x);
+	while (i <= expoente) {
+		potencia = obtenhaProdutoDeInteirosUsandoSomas(potencia, base);
 		i++;
 	}
 
@@ -308,34 +308,34 @@ function obtenhaValorPi(valorDePrecisao) {
 /** 
  * Função matemática que obtém valor do logaritmo 
  * 
- * @param n O valor é númerador
- * @param k O valor é denominador
+ * @param base O valor é a base 
+ * @param valorLogaritmo O valor é valor Logaritmo
  *
  * @returns {double} O valor do logaritmo
  *
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
- * @throws {RangeError} Se o valor n for menor que 1
- * @throws {RangeError} Se o valor k for menor que 2
+ * @throws {RangeError} Se o valor base for menor que 1
+ * @throws {RangeError} Se o valor valorLogaritmo for menor que 2
  */
-function obtenhaLogaritmoNatural(n, k) {
-	if (typeof n != 'number' || typeof k != 'number') {
+function obtenhaLogaritmoNatural(base, valorLogaritmo) {
+	if (typeof base != 'number' || typeof valorLogaritmo != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
 
-	if (n < 1) {
+	if (base < 1) {
 		return RangeError("Numerador deve ser maior que zero");
 	}
 
-	if (k < 2) {
+	if (valorLogaritmo < 2) {
 		return RangeError("Denominador deve ser maior que um");
 	}
 
 	var i = 2;
-	var e = (i + n);
-	var numerador = n;
+	var e = (i + base);
+	var numerador = base;
 	var denominador = 1;
 
-	while (i <= k) {
+	while (i <= valorLogaritmo) {
 		numerador = (numerador * numerador);
 		denominador = (denominador * i);
 		e = e + (numerador / denominador);
@@ -348,29 +348,29 @@ function obtenhaLogaritmoNatural(n, k) {
 /** 
  * Função matemática que obtém razão áurea
  * 
- * @param x O valor do primeiro inteiro positivo
- * @param y O valor do segundo inteiro positivo
- * @param k O valor da precisão desejada
+ * @param anterior O valor do primeiro inteiro positivo
+ * @param posterior O valor do segundo inteiro positivo
+ * @param limite O valor da precisão desejada
  *
  * @returns {double} O valor da razão áurea
  *
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
- * @throws {RangeError} Se o valor x for menor que zero ou y for menor que x ou k for menor que 1
+ * @throws {RangeError} Se o valor anterior for menor que zero ou posterior for menor que anterior ou limite for menor que 1
  */
-function obtenhaRazaoAurea(x, y, k) {
-	if (typeof x != 'number' || typeof y != 'number' || typeof k != 'number') {
+function obtenhaRazaoAurea(anterior, posterior, limite) {
+	if (typeof anterior != 'number' || typeof posterior != 'number' || typeof limite != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
 
-	if (x < 0 || y < x || k <= 0) {
+	if (anterior < 0 || posterior < anterior || limite <= 0) {
 		return RangeError("x deve ser maior ou igual a 0, y deve ser maior que x e k maior que 0.");
 	}
 
-	var c = y;
-	var a = x;
+	var c = posterior;
+	var a = anterior;
 	var i = 1;
 
-	while (i <= k) {
+	while (i <= limite) {
 		var t = c;
 		c = c + a;
 		a = t;
@@ -383,37 +383,37 @@ function obtenhaRazaoAurea(x, y, k) {
 /** 
  * Função matemática diz que um quadrado perfeito n^2 satisfaz a equação.
  * 
- * @param n O valor a ser testado.
+ * @param valorEntrada O valor a ser testado.
  *
  * @returns {boolean} Retorna verdadeiro se o número fornecido é um quadrado perfeito.
  *
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
- * @throws {RangeError} Se o valor n for menor que 1.
+ * @throws {RangeError} Se o valor valorEntrada for menor que 1.
  */
-function ehQuadradoPerfeito(n) {
-	if (typeof n != 'number') {
+function ehQuadradoPerfeito(valorEntrada) {
+	if (typeof valorEntrada != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
 
-	if (n < 1) {
+	if (valorEntrada < 1) {
 		return RangeError("É permitido somente números naturais e diferente de zero.");
 	}
 
 	var i = 1;
 	var s = 1;
 
-	while (s < n) {
+	while (s < valorEntrada) {
 		i = i + 2;
 		s = s + i;
 	}
 
-	return s == n;
+	return s == valorEntrada;
 }
 
 /** 
  * Função matemática que obtém a raiz quadrada do valor
  * 
- * @param n O valor de entrada 
+ * @param numero O valor de entrada 
  * @param i O valor de precisão 
  *
  * @returns {boolean} Retorna verdadeiro se o número fornecido é um quadrado perfeito.
@@ -421,18 +421,18 @@ function ehQuadradoPerfeito(n) {
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
  * @throws {RangeError} Se o valor n for menor que zero.
  */
-function obtenhaRaizQuadrada(n, valorDePrecisao) {
-	if (typeof n != 'number' || typeof valorDePrecisao != 'number') {
+function obtenhaRaizQuadrada(numero, valorDePrecisao) {
+	if (typeof numero != 'number' || typeof valorDePrecisao != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
 
-	if (n < 0) {
+	if (numero < 0) {
 		return RangeError("É permitido somente números naturais.");
 	}
 
 	var r = 1;
 	while (0 <= valorDePrecisao) {
-		r = (r + (n / r)) / 2;
+		r = (r + (numero / r)) / 2;
 		valorDePrecisao--;
 	}
 
@@ -442,25 +442,25 @@ function obtenhaRaizQuadrada(n, valorDePrecisao) {
 /** 
  * Função matemática que retorna se o valor é primo
  * 
- * @param n O valor de entrada 
+ * @param valorEntrada O valor de entrada 
  *
  * @returns {boolean} Retorna verdadeiro se o número fornecido é primo
  *
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
  * @throws {RangeError} Se o valor n for menor ou igual a um.
  */
-function ehNumeroPrimo(n) {
-	if (typeof n != 'number') {
+function ehNumeroPrimo(valorEntrada) {
+	if (typeof valorEntrada != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
 
-	if (n <= 1) {
+	if (valorEntrada <= 1) {
 		return RangeError("É permitido somente números maiores que um.");
 	}
 
 	var i = 2;
-	while (i < n) {
-		if (n % i == 0) {
+	while (i < valorEntrada) {
+		if (valorEntrada % i == 0) {
 			return false;
 		}
 		i++;
@@ -469,134 +469,174 @@ function ehNumeroPrimo(n) {
 	return true;
 }
 
-//TODO
-function ehCrivoErastostenes(n) {
-	if (typeof n != 'number') {
+/**Função matmática que calcula o Crivo de Eratostenes.
+ *
+ * @param {number} vetor vetor utilizado na operação
+ *
+ * @returns {number} Retorna o valor do Crivo de Eratostenes
+ */
+function ehCrivoErastostenes(valorEntrada) {
+	if (typeof valorEntrada != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
 
-	if (n < 2) {
+	if (valorEntrada < 2) {
 		return RangeError("n deve ser maior ou igual a 2.");
 	}
 
 	var a = [];
 
-	for (var i = 1; i < n + 1; i++) {
+	for (var i = 1; i < valorEntrada + 1; i++) {
 		a[i] = 0;
 	}
 
 	var i = 2;
-	var limite = Math.floor((Math.sqrt(n)));
+	var limite = Math.floor((Math.sqrt(valorEntrada)));
 
 	while (i <= limite) {
 		if (a[i] == 0) {
 			var multiplo = i + i;
-			while (multiplo <= n) {
+			while (multiplo <= valorEntrada) {
 				a[multiplo] = 1;
 				multiplo = multiplo + i;
 			}
 		}
 		i = i + 1;
 	}
-	return (a[n] == 1);
+	return (a[valorEntrada] == 1);
 }
 
 /** 
  * Função matemática que obtém o MDC entre dois inteiros positivos e não nulos é o maior valor dentre os divisores comuns entre eles.
  * 
- * @param a O valor do primerio número a ser avaliado
- * @param b O valor do segundo número a ser avaliado
+ * @param primerioValor O valor do primerio número a ser avaliado
+ * @param segundoValor O valor do segundo número a ser avaliado
  *
  * @returns {boolean} Retorna o mdc
  *
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
  * @throws {RangeError} Se o valor n for menor ou igual a um.
  */
-function obtenhaMDC(a, b) {
+function obtenhaMDC(primerioValor, segundoValor) {
 
-	if (typeof a != 'number' || typeof b != 'number') {
+	if (typeof primerioValor != 'number' || typeof segundoValor != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
 
-	if (a < b || b < 1) {
+	if (primerioValor < segundoValor || segundoValor < 1) {
 		return RangeError("a deve ser maior ou igual a b e b deve ser maior que 0.");
 	}
 
 	var m;
 
-	while (b != 0) {
-		m = a % b;
-		a = b;
-		b = m;
+	while (segundoValor != 0) {
+		m = primerioValor % segundoValor;
+		primerioValor = segundoValor;
+		segundoValor = m;
 	}
 
-	return a;
+	return primerioValor;
 }
 
-function obtenhaMDC2(a, b) {
-	if (typeof a != 'number' || typeof b != 'number') {
+/** 
+ * Função matemática que obtém o MDC entre dois inteiros positivos e não nulos é o maior valor dentre os divisores comuns entre eles.
+ * 
+ * @param primerioValor O valor do primerio número a ser avaliado
+ * @param segundoValor O valor do segundo número a ser avaliado
+ *
+ * @returns {boolean} Retorna o mdc
+ *
+ * @throws {TypeError} Se qualquer um dos argumentos não for um número.
+ * @throws {RangeError} Se o valor n for menor ou igual a um.
+ */
+function obtenhaMDC2(primeiroValor, segundoValor) {
+	if (typeof primeiroValor != 'number' || typeof segundoValor != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
 
-	if (a < b || b < 1) {
+	if (primeiroValor < segundoValor || segundoValor < 1) {
 		return RangeError("a deve ser maior ou igual a b e b deve ser maior que 0.");
 	}
 
-	while (a != b) {
-		if (a > b) {
-			a = a - b;
+	while (primeiroValor != segundoValor) {
+		if (primeiroValor > segundoValor) {
+			primeiroValor = primeiroValor - segundoValor;
 		}
 
 		else {
-			b = b - a;
+			segundoValor = segundoValor - primeiroValor;
 		}
 	}
 
-	return a;
+	return primeiroValor;
 }
 
-function obtenhaAvaliacaoPolinonimo(a, g) {
-	if (typeof x != 'number' || typeof g != 'number') {
-		return TypeError("Este parâmetro não é um número.");
-	}
+/**Função que avalia um polinômio de acordo com a regra de Horner.
+ *
+ * @param {number} numero inteiro utilizado no calculo
+ * @param {number} vetor inteiro que representa o polinomio
+ *
+ * @returns {number} Retorna o resultado do polinomio
+ */
+function obtenhaAvaliacaoPolinonimo(valor, total, vetor) {
 
-	if (g < 1) {
-		return RangeError("g deve ser maior ou igual a 1.");
-	}
+	if (vetor == null || !Array.isArray(vetor)) {
+        throw new TypeError("Este parâmetro não é um vetor");
+    }
 
-	var a = [g + 1];
+    let index = 0;
 
-	var p = a[g];
-	var i = g - 1;
+    for (index; index < vetor.length; index++) {
+        if (typeof vetor[index] != "number") {
+            throw new RangeError("O vetor deve conter somente"
+            + "números inteiros");
+        }
+    }
 
-	while (0 <= i) {
-		p = p * (x + a[i]);
-		i = i - 1;
-	}
+    if (typeof numero != "number") {
+        throw new TypeError("Este parâmetro não é um número");
+    }
 
-	return p;
+    if (vetor.length < 1) {
+        throw new RangeError("Vetor não pode conter menos de um valor");
+    }
+
+    let resultado = vetor[vetor.length - 1];
+
+    for (index = vetor.length - 1; index >= 0; index--) {
+        resultado = resultado * (numero + vetor[index]);
+    }
+
+    return resultado;
 }
 
-function obtenhaFibonacci(n) {
-	if (n < 0) {
+/**Função que obtém o n-ésimo número de Fibonacci.
+ *
+ * @param {number} valorEntrada inteiro que representa a quantidade de
+ * iterações do cálculo
+ *
+ * @returns {number} Retorna o número de Fibonnaci na n-ésima posição
+ */
+function obtenhaFibonacci(valorEntrada) {
+	if (valorEntrada < 0) {
 		return RangeError("É permitido somente valor inteiro");
 	}
 
-	var a = 0;
-	var c = 1;
-	if (n == 0 || n == 1) {
-		return n;
+	var auxiliar = 0;
+	var resultado = 1;
+	if (valorEntrada == 0 || valorEntrada == 1) {
+		return valorEntrada;
 	}
 
 	var i = 2;
-	while (i <= n) {
-		var t = c;
-		c = c + a;
-		a = t;
+	while (i <= valorEntrada) {
+		var t = resultado;
+		resultado = resultado + auxiliar;
+		auxiliar = t;
 		i++;
 	}
 
-	return c;
+	return resultado;
 }
 
 function ehCPFValido(digitoCPF) {
