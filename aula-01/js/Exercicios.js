@@ -10,7 +10,7 @@
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
  * @throws {RangeError} Se é menor que zero ou maior que 9999.
  */
-function ehPropriedade3025(valorTestado) {
+function ehPropriedade3025(numero) {
 	if (typeof numero != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
@@ -29,14 +29,14 @@ function ehPropriedade3025(valorTestado) {
 /**
  * Verfica se o número passado satisfaz a propriedade 153
  * 
- * @param valorTestado O valor passado para ser avaliado.
+ * @param numero O valor passado para ser avaliado.
  * 
  * @returns {boolean} Resposta se o valor corresponde a propriedade 153. 
  * 
  * @throws {TypeError} Se qualquer um dos argumentos não for um número.
  * @throws {RangeError} Se é menor que 100 ou maior que 999.
  */
-function ehPropriedade153(valorTestado) {
+function ehPropriedade153(numero) {
 	if (typeof numero != 'number') {
 		return TypeError("Este parâmetro não é um número.");
 	}
@@ -581,33 +581,33 @@ function obtenhaMDC2(primeiroValor, segundoValor) {
 function obtenhaAvaliacaoPolinonimo(valor, total, vetor) {
 
 	if (vetor == null || !Array.isArray(vetor)) {
-        throw new TypeError("Este parâmetro não é um vetor");
-    }
+		throw new TypeError("Este parâmetro não é um vetor");
+	}
 
-    let index = 0;
+	let index = 0;
 
-    for (index; index < vetor.length; index++) {
-        if (typeof vetor[index] != "number") {
-            throw new RangeError("O vetor deve conter somente"
-            + "números inteiros");
-        }
-    }
+	for (index; index < vetor.length; index++) {
+		if (typeof vetor[index] != "number") {
+			throw new RangeError("O vetor deve conter somente"
+				+ "números inteiros");
+		}
+	}
 
-    if (typeof numero != "number") {
-        throw new TypeError("Este parâmetro não é um número");
-    }
+	if (typeof numero != "number") {
+		throw new TypeError("Este parâmetro não é um número");
+	}
 
-    if (vetor.length < 1) {
-        throw new RangeError("Vetor não pode conter menos de um valor");
-    }
+	if (vetor.length < 1) {
+		throw new RangeError("Vetor não pode conter menos de um valor");
+	}
 
-    let resultado = vetor[vetor.length - 1];
+	let resultado = vetor[vetor.length - 1];
 
-    for (index = vetor.length - 1; index >= 0; index--) {
-        resultado = resultado * (numero + vetor[index]);
-    }
+	for (index = vetor.length - 1; index >= 0; index--) {
+		resultado = resultado * (numero + vetor[index]);
+	}
 
-    return resultado;
+	return resultado;
 }
 
 /**Função que obtém o n-ésimo número de Fibonacci.
