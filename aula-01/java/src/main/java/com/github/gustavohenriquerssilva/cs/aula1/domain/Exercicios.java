@@ -312,7 +312,7 @@ public final class Exercicios {
             throw new IllegalArgumentException("Base deve ser maior que zero");
         }
 
-        final int valorMinLog = 1;
+        final int valorMinLog = 2;
         if (valorLogaritmo < valorMinLog) {
             throw new IllegalArgumentException("Número logaritmo deve ser maior que um");
         }
@@ -405,16 +405,16 @@ public final class Exercicios {
     public static int obtenhaRaizQuadrada(final int valorEntrada, final double precisao) {
 
         final int valorMinRaizQuad = 0;
-        int _precisao = precisao;
         if (valorEntrada < valorMinRaizQuad) {
             throw new IllegalArgumentException("É permitido somente "
                     + "números naturais");
         }
 
+        double precisaoAux = precisao;
         int raiz = 1;
-        while (0 <= _precisao) {
+        while (0 <= precisaoAux) {
             raiz = (raiz + (valorEntrada / raiz)) / 2;
-            _precisao--;
+            precisaoAux--;
         }
 
         return raiz;
@@ -430,8 +430,8 @@ public final class Exercicios {
      */
     public static boolean ehNumeroPrimo(final int numeroEntrada) {
 
-        final int valorMinPrimo = 0;
-        if (numeroEntrada < valorMinPrimo) {
+        final int valorMinPrimo = 1;
+        if (numeroEntrada <= valorMinPrimo) {
             throw new IllegalArgumentException("É permitido somente "
                     + "números maiores que um");
         }
@@ -494,7 +494,7 @@ public final class Exercicios {
      * @return Retorna o mdc
      * @throws IllegalArgumentException Se o valor n for menor ou igual a um.
      */
-    public static int obtenhaMDC1(final double primeiroValor, final double segundoValor) {
+    public static int obtenhaMDC1(final int primeiroValor, final int segundoValor) {
 
         final int valorMinMDC1 = 1;
         if (segundoValor > primeiroValor || segundoValor < valorMinMDC1) {
@@ -502,16 +502,16 @@ public final class Exercicios {
                     + "estão incorretos");
         }
 
-        int _primeiroValor = primeiroValor;
-        int _segundoValor = segundoValor;
+        int primeiroValorAux = primeiroValor;
+        int segundoValorAux = segundoValor;
 
-        while (_segundoValor != 0) {
-            final int resto = _primeiroValor % _segundoValor;
-            _primeiroValor = _segundoValor;
-            _segundoValor = resto;
+        while (segundoValorAux != 0) {
+            final int resto = primeiroValorAux % segundoValorAux;
+            primeiroValorAux = segundoValorAux;
+            segundoValorAux = resto;
         }
 
-        return _primeiroValor;
+        return primeiroValorAux;
     }
 
     /**
@@ -569,7 +569,7 @@ public final class Exercicios {
 
         double polinomio = vetor[total];
 
-        for (int contador = (total - 1); contador >= 0; contador--) {
+        for (int contador = total - 1; contador >= 0; contador--) {
             polinomio = polinomio * (valor + vetor[contador]);
         }
 
@@ -659,7 +659,12 @@ public final class Exercicios {
                 && vetorComparaDois == digitoCPF[novaPosicao];
     }
 
-
+    /**
+     * Função matemática para conferir CPF.
+     *
+     * @param digitoCPF Array com cpf para conferir.
+     * @return Retorna o true se o CPF for válido
+     */
     public static boolean ehCPFValido2(final int[] digitoCPF) {
 
         verificaExcecaoCpfInvalido(digitoCPF);
@@ -690,23 +695,28 @@ public final class Exercicios {
                 && segundaComparacao == digitoCPF[novaPosicao];
     }
 
+    /**
+     * Verificação se o CPF é váligo
+     *
+     * @param digitoCPF Array com cpf para conferir.
+     */
     public static void verificaExcecaoCpfInvalido(final int[] digitoCPF) {
-        final int valorMaxDigComVerifi = 11;
 
         if (digitoCPF == null) {
             throw new IllegalArgumentException("CPF não informado");
         }
 
-        if (digitoCPF.length != valorMaxDigComVerifi) {
+        final int maxDigTotal = 11;
+        if (digitoCPF.length != maxDigTotal) {
             throw new IllegalArgumentException(
                     "CPF deve ter exatos 11 digitos");
         }
 
-        final int valorMaxDigSemVerifi = 9;
+        final int maxDigParcial = 9;
 
-        for (int contador = 0; contador < valorMaximoDeDigitos; contador++) {
+        for (int contador = 0; contador < maxDigParcial; contador++) {
             if (digitoCPF[contador] < 0
-                    || digitoCPF[contador] > valorMaxDigSemVerifi) {
+                    || digitoCPF[contador] > maxDigParcial) {
                 throw new IllegalArgumentException(
                         "CPF incorreto, fora da formatação.");
             }
