@@ -14,8 +14,8 @@ public final class Exercicios {
     ;
 
     /**
-     * Função que verifica se o quadrado da soma das dezenas da entrada resulta no
-     * próprio número.
+     * Obtém quadrado da soma das dezenas da entrada resulta no
+	 * próprio número
      *
      * @param valorTestado O valor passado para ser avaliado.
      * @return Resposta se o valor corresponde a propriedade 3025.
@@ -125,7 +125,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que retorna o resto da divisão.
+     * Obtém resto da divisão.
      *
      * @param divisor   O divisor da divisão.
      * @param dividendo O dividendo da divisão.
@@ -156,7 +156,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que soma primeiros números naturais.
+     * Obtém soma primeiros números naturais.
      *
      * @param numero O valor a ser avaliado.
      * @return O somatório para os primeiros k naturais.
@@ -181,7 +181,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que obtém o fatorial de um número natural.
+     * Obtém o fatorial de um número natural.
      *
      * @param numero O valor a ser encontrado o fatorial corresponde.
      * @return O fatorial do número natural.
@@ -206,7 +206,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que obtém o produto de dois inteiros positivos.
+     * Obtém o produto de dois inteiros positivos.
      *
      * @param multiplicador O primeiro valor da multiplicação.
      * @param multiplicando O segundo valor da multiplicação.
@@ -243,7 +243,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que implementa potência usando apenas somas.
+     * Obtém potência usando apenas somas.
      *
      * @param base     O valor da base.
      * @param expoente O valor da potência.
@@ -267,7 +267,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que obtém valor de pi.
+     * Obtém valor de pi com uma precisão
      *
      * @param precisao O valor de precisão para o pi.
      * @return O valor de pi.
@@ -297,7 +297,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que obtém valor do logaritmo.
+     * Obtém valor do logaritmo.
      *
      * @param base           O valor é númerador.
      * @param valorLogaritmo O valor é denominador.
@@ -332,7 +332,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que obtém razão áurea.
+     * Obtém razão áurea.
      *
      * @param anterior  O valor do primeiro inteiro positivo.
      * @param posterior O valor do segundo inteiro positivo.
@@ -368,7 +368,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática diz que um quadrado perfeito n^2 satisfaz a equação.
+     * Calcula se quadrado perfeito n^2 satisfaz a equação.
      *
      * @param valorEntrada O valor a ser testado.
      * @return Retorna verdadeiro se o número fornecido é um quadrado perfeito.
@@ -394,7 +394,7 @@ public final class Exercicios {
 
 
     /**
-     * Função matemática que obtém a raiz quadrada do valor.
+     * Obtém a raiz quadrada do valor.
      *
      * @param valorEntrada O valor de entrada
      * @param precisao     O valor de precisão
@@ -421,7 +421,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que retorna se o valor é primo.
+     * Calcula se o valor é primo.
      *
      * @param numeroEntrada O valor de entrada
      * @return Retorna verdadeiro se o número fornecido é primo
@@ -448,7 +448,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que verifica se o número é primo.
+     * Calcula se o número é primo.
      *
      * @param numeroEntrada O valor de entrada
      * @return Retorna o valor {@code true} se for um número
@@ -486,7 +486,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que obtém o MDC entre dois inteiros positivos e
+     * Obtém o MDC entre dois inteiros positivos e
      * não nulos é o maior valor dentre os divisores comuns entre eles.
      *
      * @param primeiroValor O valor do primerio número a ser avaliado
@@ -515,7 +515,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática que calcula maior divisor comum.
+     * Obtém maior divisor comum.
      *
      * @param primeiroValor Número  maior divisor comum.
      * @param segundoValor  Número do maior divisor comum.
@@ -549,7 +549,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática com a regra de Horner para avaliação de polinômio.
+     * Verifica, com a regra de Horner, para avaliação de polinômio.
      *
      * @param valor Número para cálculo da regra de Horner.
      * @param total Número para cálculo da regra de Horner.
@@ -577,7 +577,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática para o cálculo de Fibonacci.
+     * Cálculo de Fibonacci.
      *
      * @param valorEntrada Número de entrada para cálculo de Fibonacci.
      * @return Retorna número de Fibonacci.
@@ -610,7 +610,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática para conferir CPF.
+     * Confere se CPF é válido.
      *
      * @param digitoCPF Array com cpf para conferir.
      * @return Retorna o true se o CPF for válido
@@ -660,7 +660,7 @@ public final class Exercicios {
     }
 
     /**
-     * Função matemática para conferir CPF.
+     * Confere se CPF é válido.
      *
      * @param digitoCPF Array com cpf para conferir.
      * @return Retorna o true se o CPF for válido
