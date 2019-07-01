@@ -8,7 +8,8 @@ package main.java.com.github.gustavohenriquerssilva.cs.aula1.domain;
 
 public final class Exercicios {
 
-    private Exercicios() { };
+    private Exercicios() {
+    };
 
     /**
      * Obtém quadrado da soma das dezenas da entrada resulta no próprio número.
@@ -89,10 +90,17 @@ public final class Exercicios {
             anoAuxiliar = ano - anoMenos;
         }
 
-        final int resultado = dia + (2 * mesAuxiliar) + (3 * (mesAuxiliar + 1) / 5) + anoAuxiliar + (anoAuxiliar / 4)
-                - (anoAuxiliar / 100) + (anoAuxiliar / 400);
+        final int tresMes = 3;
+        final int cincoAno = 5;
+        final int quatroAno = 4;
+        final int cemAno = 100;
+        final int quatrocentosAno = 400;
+        final int seteDia = 7;
 
-        final int diasDaSemana = 7;
+        final int resultado = dia + (2 * mesAuxiliar) + (tresMes * (mesAuxiliar + 1) / cincoAno) + anoAuxiliar
+                + (anoAuxiliar / quatroAno) - (anoAuxiliar / cemAno) + (anoAuxiliar / quatrocentosAno);
+
+        final int diasDaSemana = seteDia;
         return resultado % diasDaSemana;
     }
 
@@ -596,6 +604,7 @@ public final class Exercicios {
 
         verificaExcecaoCpfInvalido(digitoCPF);
 
+        final int primeiraPosicao = 2;
         final int segundaPosicao = 3;
         final int terceiraPosicao = 4;
         final int quartaPosicao = 5;
@@ -606,13 +615,16 @@ public final class Exercicios {
         final int novaPosicao = 10;
         final int decimaPosicao = 11;
 
-        final int primeiraCompar = digitoCPF[0] + 2 * (digitoCPF[1]) + 3 * (digitoCPF[2])
-                + 4 * (digitoCPF[segundaPosicao]) + 5 * (digitoCPF[terceiraPosicao]) + 6 * (digitoCPF[quartaPosicao])
-                + 7 * (digitoCPF[quintaPosicao]) + 8 * (digitoCPF[sextaPosicao]) + 9 * (digitoCPF[setimaPosicao]);
+        final int primeiraCompar = digitoCPF[0] + primeiraPosicao * (digitoCPF[1]) + segundaPosicao * (digitoCPF[2])
+                + terceiraPosicao * (digitoCPF[segundaPosicao]) + quartaPosicao * (digitoCPF[terceiraPosicao])
+                + quintaPosicao * (digitoCPF[quartaPosicao]) + sextaPosicao * (digitoCPF[quintaPosicao])
+                + setimaPosicao * (digitoCPF[sextaPosicao]) + oitavaPosicao * (digitoCPF[setimaPosicao]);
 
-        final int segundaComparacao = digitoCPF[1] + 2 * (digitoCPF[2]) + 3 * (digitoCPF[segundaPosicao])
-                + 4 * (digitoCPF[terceiraPosicao]) + 5 * (digitoCPF[quartaPosicao]) + 6 * (digitoCPF[quintaPosicao])
-                + 7 * (digitoCPF[sextaPosicao]) + 8 * (digitoCPF[setimaPosicao]) + 9 * (digitoCPF[oitavaPosicao]);
+        final int segundaComparacao = digitoCPF[1] + primeiraPosicao * (digitoCPF[2])
+                + segundaPosicao * (digitoCPF[segundaPosicao]) + terceiraPosicao * (digitoCPF[terceiraPosicao])
+                + quartaPosicao * (digitoCPF[quartaPosicao]) + quintaPosicao * (digitoCPF[quintaPosicao])
+                + sextaPosicao * (digitoCPF[sextaPosicao]) + setimaPosicao * (digitoCPF[setimaPosicao])
+                + oitavaPosicao * (digitoCPF[oitavaPosicao]);
 
         final int vetorComparaUm = Math.floorMod(Math.floorMod(primeiraCompar, decimaPosicao), novaPosicao);
 
