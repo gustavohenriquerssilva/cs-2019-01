@@ -97,7 +97,7 @@ class ExercicioTest {
     
     @Test
     public void diaMenorQue1() {
-    	assertThrows(IllegalArgumentException.class, () -> Exercicios.obtenhaDiaDaSemana(-1, 05, 2019));
+    	assertThrows(IllegalArgumentException.class, () -> Exercicios.obtenhaDiaDaSemana(0, 05, 2019));
     }
     
     @Test
@@ -107,17 +107,17 @@ class ExercicioTest {
     
     @Test
     public void mesMenorQue1() {
-    	assertThrows(IllegalArgumentException.class, () -> Exercicios.obtenhaDiaDaSemana(1, -1, 2019));
+    	assertThrows(IllegalArgumentException.class, () -> Exercicios.obtenhaDiaDaSemana(5, 0, 2019));
     }
     
     @Test
     public void mesMaiorQue12() {
-    	assertThrows(IllegalArgumentException.class, () -> Exercicios.obtenhaDiaDaSemana(1, 13, 2019));
+    	assertThrows(IllegalArgumentException.class, () -> Exercicios.obtenhaDiaDaSemana(5, 13, 2019));
     }
     
     @Test
     public void anoMenorQue1753() {
-    	assertThrows(IllegalArgumentException.class, () -> Exercicios.obtenhaDiaDaSemana(1, 13, 1500));
+    	assertThrows(IllegalArgumentException.class, () -> Exercicios.obtenhaDiaDaSemana(1, 05, 1500));
     }
     
     @Test
@@ -304,9 +304,9 @@ class ExercicioTest {
     }
 
     @Test
-    public void mdcPrimeiroValorMenorQue1() {
+    public void mdcSegundoValorMenorQue1() {
         assertThrows(IllegalArgumentException.class,
-                () -> Exercicios.obtenhaMDC1(0, 12));
+                () -> Exercicios.obtenhaMDC1(1, 0));
     }
 
     @Test
@@ -321,9 +321,9 @@ class ExercicioTest {
     }
 
     @Test
-    public void mdc2PrimeiroValorMenorQue1() {
+    public void mdc2SegundoValorMenorQue1() {
         assertThrows(IllegalArgumentException.class,
-                () -> Exercicios.obtenhaMDC2(0, 12));
+                () -> Exercicios.obtenhaMDC2(1, 0));
     }
 
 
@@ -393,19 +393,19 @@ class ExercicioTest {
 
     @Test
     public void cpf2Incorreto2() {
-        int cpf[] = {7, 4, 8, 3, 3, 8, 4, 3, 8, 9, 1}; //cpf FALSE para teste
+        int cpf[] = {7, 4, 8, 3, 3, 8, 4, 3, 8, 9, 1}; 
         assertEquals(false, Exercicios.ehCPFValido2(cpf));
     }
 
     @Test
     public void excecaoCpfNulo() {
         assertThrows(IllegalArgumentException.class,
-                () -> Exercicios.ehCPFValido2(null));
+                () -> Exercicios.verificaExcecaoCpfInvalido(null));
     }
 
     @Test
     public void excecaoCpfTamanhoIncorreto() {
-        int cpf[] = {1, 5, 4, 7, 3, 4, 1, 5, 7, 8, 7, 6}; //cpf de tamanho incorreto para teste
+        int cpf[] = {1, 5, 4, 7, 3, 4, 1, 5, 7, 8, 7, 6}; 
         assertThrows(IllegalArgumentException.class,
                 () -> Exercicios.verificaExcecaoCpfInvalido(cpf));
     }
@@ -423,10 +423,4 @@ class ExercicioTest {
         assertThrows(IllegalArgumentException.class,
                 () -> Exercicios.verificaExcecaoCpfInvalido(cpf));
     }
-
-    @Test
-    public void coberturaCemPorCento() {
-        assertNotNull(new Exercicios());
-    }
-
 }

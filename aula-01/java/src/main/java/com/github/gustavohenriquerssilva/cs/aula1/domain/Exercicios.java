@@ -8,30 +8,23 @@ package main.java.com.github.gustavohenriquerssilva.cs.aula1.domain;
 
 public final class Exercicios {
 
-    private Exercicios() {
-    }
-
-    ;
+    private Exercicios() { };
 
     /**
-     * Obtém quadrado da soma das dezenas da entrada resulta no
-	 * próprio número
+     * Obtém quadrado da soma das dezenas da entrada resulta no próprio número.
      *
      * @param valorTestado O valor passado para ser avaliado.
      * @return Resposta se o valor corresponde a propriedade 3025.
-     * @throws IllegalArgumentException Se é menor que
-     *                                  zero ou maior que 9999.
+     * @throws IllegalArgumentException Se é menor que zero ou maior que 9999.
      */
 
-    public static boolean ehPropriedade3025(
-            final int valorTestado) {
+    public static boolean ehPropriedade3025(final int valorTestado) {
         final int valorMaxParam3025 = 9999;
         final int valorMinParam3025 = 0;
 
         if (valorTestado > valorMaxParam3025 || valorTestado < valorMinParam3025) {
-            throw new IllegalArgumentException("Valor inserido não"
-                    + " pode ser "
-                    + "menor que zero ou maior que 9999");
+            throw new IllegalArgumentException(
+                    "Valor inserido não" + " pode ser " + "menor que zero ou maior que 9999");
         }
 
         final int centena = valorTestado / 100;
@@ -55,8 +48,7 @@ public final class Exercicios {
         final int valorMaxParam153 = 999;
         final int valorMinParam153 = 100;
         if (valorTestado > valorMaxParam153 || valorTestado < valorMinParam153) {
-            throw new IllegalArgumentException("Valor inserido não pode ser"
-                    + "menor que 100 ou maior que 999");
+            throw new IllegalArgumentException("Valor inserido não pode ser" + "menor que 100 ou maior que 999");
         }
 
         final int centena = valorTestado / 100;
@@ -86,6 +78,36 @@ public final class Exercicios {
      */
     public static int obtenhaDiaDaSemana(final int dia, final int mes, final int ano) {
 
+        geraExcecaoSeDataInvalida(dia, mes, ano);
+
+        int mesAuxiliar = mes;
+        int anoAuxiliar = ano;
+        if (mes == 1 || mes == 2) {
+            final int mesMais = 12;
+            final int anoMenos = 1;
+            mesAuxiliar = mes + mesMais;
+            anoAuxiliar = ano - anoMenos;
+        }
+
+        final int resultado = dia + (2 * mesAuxiliar) + (3 * (mesAuxiliar + 1) / 5) + anoAuxiliar + (anoAuxiliar / 4)
+                - (anoAuxiliar / 100) + (anoAuxiliar / 400);
+
+        final int diasDaSemana = 7;
+        return resultado % diasDaSemana;
+    }
+
+    /**
+     * Gera exceção se a data recebida estiver invalida.
+     *
+     * @param dia Dia a ser verificado.
+     * @param mes Mês a ser verificado.
+     * @param ano Ano a ser verificado.
+     *
+     * @throws IllegalArgumentException Se qualquer um dos argumentos não estiver
+     *                                  dentro dos parâmetros de data.
+     */
+    private static void geraExcecaoSeDataInvalida(final int dia, final int mes, final int ano) {
+
         final int maxDiasNoMes = 31;
         final int minDiasNoMes = 1;
         final boolean ehDiaInvalido = dia > maxDiasNoMes || dia < minDiasNoMes;
@@ -103,25 +125,8 @@ public final class Exercicios {
         final int valorMinParaAno = 1754;
         final boolean ehAnoValido = ano < valorMinParaAno;
         if (ehAnoValido) {
-            throw new IllegalArgumentException(
-                    "Ano deve ser maior que 1754");
+            throw new IllegalArgumentException("Ano deve ser maior que 1754");
         }
-
-        int mesAuxiliar = mes;
-        int anoAuxiliar = ano;
-        if (mes == 1 || mes == 2) {
-            final int mesMais = 12;
-            final int anoMenos = 1;
-            mesAuxiliar = mes + mesMais;
-            anoAuxiliar = ano - anoMenos;
-        }
-
-        final int resultado = dia + (2 * mesAuxiliar)
-                + (3 * (mesAuxiliar + 1) / 5) + anoAuxiliar + (anoAuxiliar / 4)
-                - (anoAuxiliar / 100) + (anoAuxiliar / 400);
-
-        final int diasDaSemana = 7;
-        return resultado % diasDaSemana;
     }
 
     /**
@@ -137,15 +142,13 @@ public final class Exercicios {
 
         final boolean ehDividendoValido = dividendo < 0;
         if (ehDividendoValido) {
-            throw new IllegalArgumentException("Dividendo deve ser "
-                    + "maior ou igual a 0");
+            throw new IllegalArgumentException("Dividendo deve ser " + "maior ou igual a 0");
         }
 
         final boolean ehDivisorValido = divisor < 1;
         if (ehDivisorValido) {
             throw new IllegalArgumentException("Divisor deve ser maior que 0");
         }
-
 
         int s = dividendo;
         while (divisor <= s) {
@@ -166,8 +169,7 @@ public final class Exercicios {
 
         final int valorMinSoma = 1;
         if (numero < valorMinSoma) {
-            throw new IllegalArgumentException("É permitido somente números "
-                    + "naturais e diferente de zero");
+            throw new IllegalArgumentException("É permitido somente números " + "naturais e diferente de zero");
         }
 
         int index = 2;
@@ -191,8 +193,7 @@ public final class Exercicios {
 
         final int valorMinFatorial = 1;
         if (numero < valorMinFatorial) {
-            throw new IllegalArgumentException("É permitido somente números "
-                    + "naturais e diferente de zero");
+            throw new IllegalArgumentException("É permitido somente números " + "naturais e diferente de zero");
         }
 
         int index = 2;
@@ -216,13 +217,11 @@ public final class Exercicios {
     public static int obtenhaProdutoDeInteirosUsandoSomas(final int multiplicador, final int multiplicando) {
 
         if (multiplicador < 0) {
-            throw new IllegalArgumentException("Multiplicador deve "
-                    + "ser maior que zero");
+            throw new IllegalArgumentException("Multiplicador deve " + "ser maior que zero");
         }
 
         if (multiplicando < 0) {
-            throw new IllegalArgumentException("Multiplicando deve "
-                    + "ser maior que zero");
+            throw new IllegalArgumentException("Multiplicando deve " + "ser maior que zero");
         }
 
         int totalParcelas = multiplicador;
@@ -253,8 +252,7 @@ public final class Exercicios {
     public static int obtenhaPotenciaUsandoAsSomas(final int base, final int expoente) {
 
         if (base < 0 || expoente < 0) {
-            throw new IllegalArgumentException("É permitido somente"
-                    + " números naturais");
+            throw new IllegalArgumentException("É permitido somente" + " números naturais");
         }
 
         int potencia = 1;
@@ -267,7 +265,7 @@ public final class Exercicios {
     }
 
     /**
-     * Obtém valor de pi com uma precisão
+     * Obtém valor de pi com uma precisão.
      *
      * @param precisao O valor de precisão para o pi.
      * @return O valor de pi.
@@ -277,9 +275,7 @@ public final class Exercicios {
 
         final int valorMinPi = 1;
         if (precisao < valorMinPi) {
-            throw new IllegalArgumentException(
-                    "É permitido somente "
-                            + "números maiores que um");
+            throw new IllegalArgumentException("É permitido somente " + "números maiores que um");
         }
 
         double sinal = -1;
@@ -338,20 +334,17 @@ public final class Exercicios {
      * @param posterior O valor do segundo inteiro positivo.
      * @param limite    O valor da precisão desejada.
      * @return O valor da razão áurea.
-     * @throws IllegalArgumentException Se o valor anterior for
-     *                                  menor que zero ou posterior for menor que
-     *                                  x ou limite for menor que 1.
+     * @throws IllegalArgumentException Se o valor anterior for menor que zero ou
+     *                                  posterior for menor que x ou limite for
+     *                                  menor que 1.
      */
     public static double obtenhaRazaoAurea(final int anterior, final int posterior, final int limite) {
 
         final int valorMinAnt = 0;
         final int valorMinLim = 0;
         if (anterior < valorMinAnt || posterior < anterior || limite <= valorMinLim) {
-            throw new IllegalArgumentException(
-                    "Valor anterior deve"
-                            + " ser menor que 0"
-                            + " posterior maior que anterior"
-                            + " e limite maior que 0.");
+            throw new IllegalArgumentException("Valor anterior deve" + " ser menor que 0"
+                    + " posterior maior que anterior" + " e limite maior que 0.");
         }
 
         double auxiliarPosterior = posterior;
@@ -359,8 +352,7 @@ public final class Exercicios {
 
         for (int contador = 1; contador <= limite; contador++) {
             final double troca = auxiliarPosterior;
-            auxiliarPosterior = auxiliarPosterior
-                    + auxiliarAnterior;
+            auxiliarPosterior = auxiliarPosterior + auxiliarAnterior;
             auxiliarAnterior = troca;
         }
 
@@ -378,8 +370,7 @@ public final class Exercicios {
 
         final int valorMinQuadrado = 1;
         if (valorEntrada < valorMinQuadrado) {
-            throw new IllegalArgumentException("É permitido somente números "
-                    + "naturais e diferente de zero");
+            throw new IllegalArgumentException("É permitido somente números " + "naturais e diferente de zero");
         }
 
         int index = 1;
@@ -392,22 +383,20 @@ public final class Exercicios {
         return soma == valorEntrada;
     }
 
-
     /**
      * Obtém a raiz quadrada do valor.
      *
      * @param valorEntrada O valor de entrada
      * @param precisao     O valor de precisão
-     * @return {boolean} Retorna verdadeiro se o número
-     * fornecido é um quadrado perfeito.
+     * @return {boolean} Retorna verdadeiro se o número fornecido é um quadrado
+     *         perfeito.
      * @throws IllegalArgumentException Se o valor n for menor que zero.
      */
     public static int obtenhaRaizQuadrada(final int valorEntrada, final double precisao) {
 
         final int valorMinRaizQuad = 0;
         if (valorEntrada < valorMinRaizQuad) {
-            throw new IllegalArgumentException("É permitido somente "
-                    + "números naturais");
+            throw new IllegalArgumentException("É permitido somente " + "números naturais");
         }
 
         double precisaoAux = precisao;
@@ -425,15 +414,14 @@ public final class Exercicios {
      *
      * @param numeroEntrada O valor de entrada
      * @return Retorna verdadeiro se o número fornecido é primo
-     * @throws IllegalArgumentException Se o valor
-     *                                  numeroEntrada for menor ou igual a um.
+     * @throws IllegalArgumentException Se o valor numeroEntrada for menor ou igual
+     *                                  a um.
      */
     public static boolean ehNumeroPrimo(final int numeroEntrada) {
 
         final int valorMinPrimo = 1;
         if (numeroEntrada <= valorMinPrimo) {
-            throw new IllegalArgumentException("É permitido somente "
-                    + "números maiores que um");
+            throw new IllegalArgumentException("É permitido somente " + "números maiores que um");
         }
 
         int index = 2;
@@ -451,17 +439,15 @@ public final class Exercicios {
      * Calcula se o número é primo.
      *
      * @param numeroEntrada O valor de entrada
-     * @return Retorna o valor {@code true} se for um número
-     * primo e o valor {@code false} caso não seja.
-     * @throws IllegalArgumentException Se numero
-     *                                  não for maior ou igual a 2.
+     * @return Retorna o valor {@code true} se for um número primo e o valor
+     *         {@code false} caso não seja.
+     * @throws IllegalArgumentException Se numero não for maior ou igual a 2.
      */
     public static boolean crivoErastotenes(final int numeroEntrada) {
 
         final int valorMinCrivo = 2;
         if (numeroEntrada < valorMinCrivo) {
-            throw new IllegalArgumentException("Valor de entrada deve "
-                    + "ser maior que 2");
+            throw new IllegalArgumentException("Valor de entrada deve " + "ser maior que 2");
         }
 
         int[] vetor = new int[numeroEntrada + 1];
@@ -486,8 +472,8 @@ public final class Exercicios {
     }
 
     /**
-     * Obtém o MDC entre dois inteiros positivos e
-     * não nulos é o maior valor dentre os divisores comuns entre eles.
+     * Obtém o MDC entre dois inteiros positivos e não nulos é o maior valor dentre
+     * os divisores comuns entre eles.
      *
      * @param primeiroValor O valor do primerio número a ser avaliado
      * @param segundoValor  O valor do segundo número a ser avaliado
@@ -498,8 +484,7 @@ public final class Exercicios {
 
         final int valorMinMDC1 = 1;
         if (segundoValor > primeiroValor || segundoValor < valorMinMDC1) {
-            throw new IllegalArgumentException("Valores informados "
-                    + "estão incorretos");
+            throw new IllegalArgumentException("Valores informados " + "estão incorretos");
         }
 
         int primeiroValorAux = primeiroValor;
@@ -517,31 +502,27 @@ public final class Exercicios {
     /**
      * Obtém maior divisor comum.
      *
-     * @param primeiroValor Número  maior divisor comum.
+     * @param primeiroValor Número maior divisor comum.
      * @param segundoValor  Número do maior divisor comum.
      * @return Retorna maior divisor comum.
-     * @throws IllegalArgumentException Se primeiroValor não for
-     *                                  maior ou igual a numeroDois ou se segundoValor
-     *                                  não for maior que 0.
+     * @throws IllegalArgumentException Se primeiroValor não for maior ou igual a
+     *                                  numeroDois ou se segundoValor não for maior
+     *                                  que 0.
      */
     public static int obtenhaMDC2(final int primeiroValor, final int segundoValor) {
 
         final int valorMinMDC2 = 1;
         if (primeiroValor < segundoValor || segundoValor < valorMinMDC2) {
-            throw new IllegalArgumentException(
-                    "Valores informados"
-                            + "estão incorretor");
+            throw new IllegalArgumentException("Valores informados" + "estão incorretor");
         }
 
         int primeiroValorAux = primeiroValor;
         int segundoValorAux = segundoValor;
         while (primeiroValorAux != segundoValorAux) {
             if (primeiroValorAux > segundoValorAux) {
-                primeiroValorAux = primeiroValorAux
-                        - segundoValorAux;
+                primeiroValorAux = primeiroValorAux - segundoValorAux;
             } else {
-                segundoValorAux = segundoValorAux
-                        - primeiroValorAux;
+                segundoValorAux = segundoValorAux - primeiroValorAux;
             }
         }
 
@@ -555,16 +536,13 @@ public final class Exercicios {
      * @param total Número para cálculo da regra de Horner.
      * @param vetor Vetor para cálculo da regra de Horner.
      * @return Retorna regra de Horner.
-     * @throws IllegalArgumentException Se total não
-     *                                  for maior ou igual a 1.
+     * @throws IllegalArgumentException Se total não for maior ou igual a 1.
      */
-    public static double obtenhaValorDaRegraDeHorner(final double valor,
-                                                     final int total, final int[] vetor) {
+    public static double obtenhaValorDaRegraDeHorner(final double valor, final int total, final int[] vetor) {
 
         final int valorMinHorner = 1;
         if (total < valorMinHorner) {
-            throw new IllegalArgumentException(
-                    "Valor total maior ou igual a 1.");
+            throw new IllegalArgumentException("Valor total maior ou igual a 1.");
         }
 
         double polinomio = vetor[total];
@@ -581,8 +559,7 @@ public final class Exercicios {
      *
      * @param valorEntrada Número de entrada para cálculo de Fibonacci.
      * @return Retorna número de Fibonacci.
-     * @throws IllegalArgumentException Se numero não
-     *                                  for maior ou igual a 0.
+     * @throws IllegalArgumentException Se numero não for maior ou igual a 0.
      */
     public static int obtenhaFibonacci(final int valorEntrada) {
 
@@ -629,34 +606,19 @@ public final class Exercicios {
         final int novaPosicao = 10;
         final int decimaPosicao = 11;
 
-        final int primeiraCompar = digitoCPF[0]
-                + 2 * (digitoCPF[1])
-                + 3 * (digitoCPF[2])
-                + 4 * (digitoCPF[segundaPosicao])
-                + 5 * (digitoCPF[terceiraPosicao])
-                + 6 * (digitoCPF[quartaPosicao])
-                + 7 * (digitoCPF[quintaPosicao])
-                + 8 * (digitoCPF[sextaPosicao])
-                + 9 * (digitoCPF[setimaPosicao]);
+        final int primeiraCompar = digitoCPF[0] + 2 * (digitoCPF[1]) + 3 * (digitoCPF[2])
+                + 4 * (digitoCPF[segundaPosicao]) + 5 * (digitoCPF[terceiraPosicao]) + 6 * (digitoCPF[quartaPosicao])
+                + 7 * (digitoCPF[quintaPosicao]) + 8 * (digitoCPF[sextaPosicao]) + 9 * (digitoCPF[setimaPosicao]);
 
-        final int segundaComparacao = digitoCPF[1]
-                + 2 * (digitoCPF[2])
-                + 3 * (digitoCPF[segundaPosicao])
-                + 4 * (digitoCPF[terceiraPosicao])
-                + 5 * (digitoCPF[quartaPosicao])
-                + 6 * (digitoCPF[quintaPosicao])
-                + 7 * (digitoCPF[sextaPosicao])
-                + 8 * (digitoCPF[setimaPosicao])
-                + 9 * (digitoCPF[oitavaPosicao]);
+        final int segundaComparacao = digitoCPF[1] + 2 * (digitoCPF[2]) + 3 * (digitoCPF[segundaPosicao])
+                + 4 * (digitoCPF[terceiraPosicao]) + 5 * (digitoCPF[quartaPosicao]) + 6 * (digitoCPF[quintaPosicao])
+                + 7 * (digitoCPF[sextaPosicao]) + 8 * (digitoCPF[setimaPosicao]) + 9 * (digitoCPF[oitavaPosicao]);
 
-        final int vetorComparaUm = Math.floorMod(
-                Math.floorMod(primeiraCompar, decimaPosicao), novaPosicao);
+        final int vetorComparaUm = Math.floorMod(Math.floorMod(primeiraCompar, decimaPosicao), novaPosicao);
 
-        final int vetorComparaDois = Math.floorMod(
-                Math.floorMod(segundaComparacao, decimaPosicao), novaPosicao);
+        final int vetorComparaDois = Math.floorMod(Math.floorMod(segundaComparacao, decimaPosicao), novaPosicao);
 
-        return vetorComparaUm == digitoCPF[oitavaPosicao]
-                && vetorComparaDois == digitoCPF[novaPosicao];
+        return vetorComparaUm == digitoCPF[oitavaPosicao] && vetorComparaDois == digitoCPF[novaPosicao];
     }
 
     /**
@@ -683,20 +645,15 @@ public final class Exercicios {
             aux2 = aux2 + aux1;
         }
 
-        final int primeiraCompar = Math.floorMod(
-                Math.floorMod(aux2, decimaPosicao),
-                novaPosicao);
+        final int primeiraCompar = Math.floorMod(Math.floorMod(aux2, decimaPosicao), novaPosicao);
         final int segundaComparacao = Math.floorMod(
-                Math.floorMod(aux2 - aux1
-                        + (oitavaPosicao * digitoCPF[oitavaPosicao]), decimaPosicao),
-                novaPosicao);
+                Math.floorMod(aux2 - aux1 + (oitavaPosicao * digitoCPF[oitavaPosicao]), decimaPosicao), novaPosicao);
 
-        return primeiraCompar == digitoCPF[oitavaPosicao]
-                && segundaComparacao == digitoCPF[novaPosicao];
+        return primeiraCompar == digitoCPF[oitavaPosicao] && segundaComparacao == digitoCPF[novaPosicao];
     }
 
     /**
-     * Verificação se o CPF é váligo
+     * Verificação se o CPF é váligo.
      *
      * @param digitoCPF Array com cpf para conferir.
      */
@@ -708,19 +665,15 @@ public final class Exercicios {
 
         final int maxDigTotal = 11;
         if (digitoCPF.length != maxDigTotal) {
-            throw new IllegalArgumentException(
-                    "CPF deve ter exatos 11 digitos");
+            throw new IllegalArgumentException("CPF deve ter exatos 11 digitos");
         }
 
         final int maxDigParcial = 9;
 
         for (int contador = 0; contador < maxDigParcial; contador++) {
-            if (digitoCPF[contador] < 0
-                    || digitoCPF[contador] > maxDigParcial) {
-                throw new IllegalArgumentException(
-                        "CPF incorreto, fora da formatação.");
+            if (digitoCPF[contador] < 0 || digitoCPF[contador] > maxDigParcial) {
+                throw new IllegalArgumentException("CPF incorreto, fora da formatação.");
             }
         }
     }
 }
-
