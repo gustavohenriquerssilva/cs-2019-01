@@ -10,7 +10,8 @@ import java.util.Random;
 
 public final class Exercicio7 {
 
-    private Exercicio7() { };
+    private Exercicio7() {
+    };
 
     /**
      * Obtém a menor temperatura.
@@ -43,7 +44,7 @@ public final class Exercicio7 {
 
         int soma = 0;
 
-        for (int index = 0; index < valorEntrada.length && soma >= 0; index++) {
+        for (int index = 0; index < valorEntrada.length; index++) {
             if (valorEntrada[index] % 2 != 0) {
                 soma = soma + valorEntrada[index];
             }
@@ -55,7 +56,7 @@ public final class Exercicio7 {
     /**
      * Obtém quantidade de repeticões em que determinado número ocorre em um vetor.
      *
-     * @param vetor Vetor que será analisado.
+     * @param vetor      Vetor que será analisado.
      * @param comparador Valor que será buscado no vetor e contabilizado.
      * @return A quantidade de valores no vetor iguais ao comparador.
      */
@@ -64,7 +65,7 @@ public final class Exercicio7 {
 
         int qtdElemIguais = 0;
 
-        for (int index = 0; index < vetor.length;  index++) {
+        for (int index = 0; index < vetor.length; index++) {
             if (vetor[index] == comparador) {
                 qtdElemIguais++;
             }
@@ -93,15 +94,14 @@ public final class Exercicio7 {
     }
 
     /**
-     * obtenha a quantidade de vezes que uma palavra ocorre em um vetor de
-     * palavras.
+     * obtenha a quantidade de vezes que uma palavra ocorre em um vetor de palavras.
      *
-     * @param frase A sequência de caracteres.
+     * @param palavraSelecionada A palavra selecionada.
+     * @param frase              A sequência de palavras.
      * @return A palavraSelecionada que mais aparece na sequência de caracteres.
      */
 
-    public static int obtenhaQtdPalavras(final String palavraSelecionada,
-                                   final String[] frase) {
+    public static int obtenhaQtdPalavras(final String palavraSelecionada, final String[] frase) {
 
         int quantidade = 0;
         for (int index = 0; index < frase.length; index++) {
@@ -115,12 +115,13 @@ public final class Exercicio7 {
     }
 
     /**
-     * A função sorteia aleatoriamente 1.000.000 de valores inteiros de 0 a 1000 e identifica o
-     * número que mais foi sorteado. Se mais de um número foi o “mais frequente”, então todos eles
-     * são retornados (em uma coleção) juntamente com a quantidade de vezes em que ocorrerão.
+     * A função sorteia aleatoriamente 1.000.000 de valores inteiros de 0 a 1000 e
+     * identifica o número que mais foi sorteado. Se mais de um número foi o “mais
+     * frequente”, então todos eles são retornados (em uma coleção) juntamente com a
+     * quantidade de vezes em que ocorrerão.
      *
-     * @return Coleção de strings contendo os números mais sorteados juntamente com a quantidade
-     * de vezes que foram sorteados.
+     * @return Coleção de strings contendo os números mais sorteados juntamente com
+     *         a quantidade de vezes que foram sorteados.
      */
 
     public static Collection<String> verificarMaisSorteado() {
@@ -152,4 +153,3 @@ public final class Exercicio7 {
         return maisSorteados;
     }
 }
-

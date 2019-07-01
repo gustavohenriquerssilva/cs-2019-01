@@ -2,6 +2,9 @@ language: java
 
 script:
   - cd aula-01/java && mvn test checkstyle:check spotbugs:check verify -P cobertura
+  - cd ..
+  - cd ..
+  - cd aula-07 / vetor / java && mvn teste checkstyle: confira spotbugs: cheque verifique -P Cobertura
  
 cache:
   directories:
