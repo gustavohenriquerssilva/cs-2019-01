@@ -5,9 +5,6 @@
 Projeto de referência para software em Java e JavaScript na disciplina de Construção de Software,
  Engenharia de Software, [INF/UFG](http://inf.ufg.br/)
 
-> _Objetivo: "Formar profissionais aptos a contribuir 
-efetivamente com a produção de softwares de qualidade seguindo princípios éticos e profissionais"
-
 
 ## Aula 01
 
