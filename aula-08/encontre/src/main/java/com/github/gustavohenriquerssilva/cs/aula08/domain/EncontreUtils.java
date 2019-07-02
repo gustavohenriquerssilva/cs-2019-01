@@ -7,8 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * Obtém a quantidade de ocorrência de uma palavra fornecida como parametro em um
- * arquivo.
+ * Obtém a quantidade de ocorrência de uma palavra fornecida como parametro em
+ * um arquivo.
  */
 public final class EncontreUtils {
 
@@ -21,7 +21,7 @@ public final class EncontreUtils {
 
     /**
      * Encontra a quantidade de ocorrências de uma palavra fornecida como parâmetro
-     * no arquivo
+     * no arquivo.
      *
      * @param caminhoArquivo Caminho do arquivo que será lido.
      * @param palavraBuscada Palavra que será buscada no aquivo encontrado.
@@ -62,7 +62,7 @@ public final class EncontreUtils {
 
     /**
      * Busca uma palavra informada e especifica a linha e coluna das ocorrencias
-     * encontradas dela mesma
+     * encontradas dela mesma.
      *
      * @param caminhoArquivo Caminho do arquivo que será lido.
      * @param palavraBuscada Palavra que será buscada no aquivo encontrado.
@@ -75,18 +75,17 @@ public final class EncontreUtils {
     public static String obtenhaLinhasEColunas(final String caminhoArquivo, final String palavraBuscada)
             throws IOException {
         final File arquivo = new File(caminhoArquivo);
-        
+
         if (arquivo.length() == 0) {
             throw new IllegalArgumentException("O arquivo não contem dados suficientes.");
         }
-
 
         final BufferedReader br = Files.newBufferedReader(Paths.get(caminhoArquivo));
 
         final StringBuilder resultado = new StringBuilder();
         final StringBuilder linha = new StringBuilder();
         int contadorLinhas = 0;
-        String linhaSelecionada; 
+        String linhaSelecionada;
 
         linhaSelecionada = br.readLine();
         while (linhaSelecionada != null) {

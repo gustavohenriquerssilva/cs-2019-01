@@ -6,7 +6,6 @@ import com.github.gustavohenriquerssilva.cs.aula08.domain.EncontreUtils;
 
 /**
  * Tem a finalidade de execução da classe EncontreUtils.
- * 
  * @author Gustavo Henrique Rodrigues Santos Silva
  */
 public final class ProgramaEncontre {
@@ -19,8 +18,8 @@ public final class ProgramaEncontre {
     }
 
     /**
-     * Encontra a palavra chave no arquivo e imprime 
-     * a quantidade e os locais que é encotrado.
+     * Encontra a palavra chave no arquivo e imprime a quantidade e os locais que é
+     * encotrado.
      *
      * @param args Caminho do arquivo e palavra a ser analizada.
      *
