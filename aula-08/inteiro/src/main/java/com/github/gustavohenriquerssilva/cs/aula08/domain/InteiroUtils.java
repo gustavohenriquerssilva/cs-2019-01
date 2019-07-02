@@ -29,6 +29,7 @@ public final class InteiroUtils {
      *
      * @throws IllegalArgumentException Se o arquivo não existir ou se houverem
      *                                  dados insuficientes no arquivo.
+     * @throws IOException              Se ocorrer exception de IO
      */
     public static String byteFile(final String caminho) throws IOException {
 
