@@ -8,66 +8,55 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * Tem a função de receber um arquivo e
- * conferir se o mesmo é um arquivo do tipo jpeg.
+ * Classe responsável por confetir
+ * o arquivo passado é do tipo jpeg.
  */
 public final class ConfereArquivoUtils {
 
     /**
-     * Primeiro byte de arquivo jpeg.
+     * Primeiro byte do arquivo jpeg.
      */
-    private static final int PRIMEIROBYTE = 0xff;
+    private static final int PRIMEIRO_BYTE = 0xff;
 
     /**
-     * Segundo byte de arquivo jpeg.
+     * Segundo byte do arquivo jpeg.
      */
-    private static final int SEGUNDOBYTE = 0xd8;
+    private static final int SEGUNDO_BYTE = 0xd8;
 
     /**
-     * Penúltimo byte de arquivo jpeg.
+     * Penúltimo byte do arquivo jpeg.
      */
-    private static final int PENULTIMOBYTE = 0xff;
+    private static final int PENULTIMO_BYTE = 0xff;
 
     /**
-     * Último byte de arquivo jpeg.
+     * Último byte do arquivo jpeg.
      */
-    private static final int ULTIMOBYTE = 0xd9;
+    private static final int ULTIMO_BYTE = 0xd9;
 
 
     /**
-     * Construtor privado da classe para evitar instanciação.
+     * Construtor privado da classe.
      */
     private ConfereArquivoUtils() {
 
     }
 
     /**
-     * Método que tem como função conferir se o
-     * arquivo passado é um arquivo do tipo jpeg.
+     * Confere se arquivo passado é um arquivo do tipo jpeg.
      *
      * @param caminho Caminho do arquivo que deve
-     * ser analisado para saber se é jpeg.
+     * ser analisado
      *
      * @return Retorna {@code true} se o arquivo for jpeg,
      * ou {@code false} se o arquivo não for jpeg.
      *
      * @throws IOException Se houver problema ao ler o caminho do arquivo.
-     * @throws IllegalArgumentException Se o arquivo não existir
-     * ou se houverem dados insuficientes no arquivo.
+     * @throws IllegalArgumentException Se o arquivo não contiver dados para
+     *                                  leitura.
      */
-    public static boolean confereByte(final String caminho)
+    public static boolean ehArquivoJpeg(final String caminho)
     throws IOException {
         final File arquivo = new File(caminho);
-
-        if (!arquivo.exists()) {
-            throw new IllegalArgumentException(
-                "O arquivo não existe.");
-        }
-
-        if (!arquivo.canRead()) {
-            throw new IllegalArgumentException(
-                "O arquivo não pode ser lido.");
-        }
 
         if (arquivo.length() == 0) {
             throw new IllegalArgumentException(
@@ -77,21 +66,21 @@ public final class ConfereArquivoUtils {
         final InputStream fis = Files.newInputStream(Paths.get(caminho));
         final DataInputStream dis = new DataInputStream(fis);
 
-        final int valor1 = dis.readUnsignedByte();
-        final int valor2 = dis.readUnsignedByte();
+        final int aux1 = dis.readUnsignedByte();
+        final int aux2 = dis.readUnsignedByte();
 
-        if (valor1 != PRIMEIROBYTE && valor2 != SEGUNDOBYTE) {
+        if (aux1 != PRIMEIRO_BYTE && aux2 != SEGUNDO_BYTE) {
             dis.close();
             return false;
         }
 
         final int getPenultimoByte = 4;
         dis.skip(arquivo.length() - getPenultimoByte);
-        final int valor3 = dis.readUnsignedByte();
-        final int valor4 = dis.readUnsignedByte();
+        final int aux3 = dis.readUnsignedByte();
+        final int aux4 = dis.readUnsignedByte();
 
         boolean jpeg = false;
-        if (valor3 == PENULTIMOBYTE && valor4 == ULTIMOBYTE) {
+        if (aux3 == PENULTIMO_BYTE && aux4 == ULTIMO_BYTE) {
             jpeg = true;
         }
         dis.close();

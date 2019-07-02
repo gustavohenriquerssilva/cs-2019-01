@@ -32,6 +32,7 @@ public class InteiroTest {
 
     @Test
     void testArquivoIncorreto() throws IOException {
+        assertThrows(IllegalArgumentException.class,() -> InteiroUtils.byteFile(getFilename("vazio.txt")));
         assertThrows(IllegalArgumentException.class,() -> InteiroUtils.byteFile("teste.txt"));
     }
 }

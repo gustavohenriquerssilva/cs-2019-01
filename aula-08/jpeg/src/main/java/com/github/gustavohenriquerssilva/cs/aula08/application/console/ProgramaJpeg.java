@@ -17,8 +17,7 @@ public final class ProgramaJpeg {
     }
 
     /**
-     * Execução do programa que confere
-     * se o arquivo é ou não jpeg.
+     * Confere se o arquivo é ou não jpeg.
      *
      * @param args Caminho do arquivo que deve ser informado.
      *
@@ -26,6 +25,6 @@ public final class ProgramaJpeg {
      */
     public static void main(final String[] args) throws IOException {
         System.out.println(ConfereArquivoUtils.arquivoJpeg(
-            ConfereArquivoUtils.confereByte(args[0])));
+            ConfereArquivoUtils.ehArquivoJpeg(args[0])));
     }
 }

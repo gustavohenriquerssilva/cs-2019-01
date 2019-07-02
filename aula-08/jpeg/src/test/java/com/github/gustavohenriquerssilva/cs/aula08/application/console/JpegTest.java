@@ -30,18 +30,18 @@ public class JpegTest {
 
     @Test
     public void confereArquivoTrue() throws IOException {
-        assertTrue(ConfereArquivoUtils.confereByte(getFilename("imagemTrue.jpg")));
+        assertTrue(ConfereArquivoUtils.ehArquivoJpeg(getFilename("imagemTrue.jpg")));
     }
 
     @Test
     public void confereArquivoFalse() throws IOException {
-        assertFalse(ConfereArquivoUtils.confereByte(getFilename("imagemFalse.txt")));
+        assertFalse(ConfereArquivoUtils.ehArquivoJpeg(getFilename("imagemFalse.txt")));
     }
 
     @Test
     public void confereArquivoVazio() throws IOException {
-        assertThrows(IllegalArgumentException.class,() -> ConfereArquivoUtils.confereByte(getFilename("vazio.txt")));
-        assertThrows(IllegalArgumentException.class,() -> ConfereArquivoUtils.confereByte("a.txt"));
+        assertThrows(IllegalArgumentException.class,() -> ConfereArquivoUtils.ehArquivoJpeg(getFilename("vazio.txt")));
+        assertThrows(IllegalArgumentException.class,() -> ConfereArquivoUtils.ehArquivoJpeg("a.txt"));
     }
 
     @Test
@@ -55,17 +55,17 @@ public class JpegTest {
         attr.permissions().clear();
         Files.setPosixFilePermissions(path, permissions);
 
-        assertThrows(IllegalArgumentException.class,() -> ConfereArquivoUtils.confereByte(teste.toString()));
+        assertThrows(IllegalArgumentException.class,() -> ConfereArquivoUtils.ehArquivoJpeg(teste.toString()));
     }
 
     @Test 
     public void confereRetornoTrue() throws IOException{
-        assertEquals("O arquivo passado é um jpeg.", ConfereArquivoUtils.arquivoJpeg(ConfereArquivoUtils.confereByte(getFilename("imagemTrue.jpg"))));
+        assertEquals("O arquivo passado é um jpeg.", ConfereArquivoUtils.arquivoJpeg(ConfereArquivoUtils.ehArquivoJpeg(getFilename("imagemTrue.jpg"))));
     }
     
     @Test 
     public void confereRetornoFalse() throws IOException{
-        assertEquals("O arquivo passado não é um jpeg.", ConfereArquivoUtils.arquivoJpeg(ConfereArquivoUtils.confereByte(getFilename("imagemFalse.txt"))));
+        assertEquals("O arquivo passado não é um jpeg.", ConfereArquivoUtils.arquivoJpeg(ConfereArquivoUtils.ehArquivoJpeg(getFilename("imagemFalse.txt"))));
     }
 
     @Test
