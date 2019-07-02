@@ -8,7 +8,7 @@ script:
   - cd ..
   - cd ..
   - cd ..
-  - cd  - cd aula-08/inteiro && mvn test checkstyle:check spotbugs:check verify -P cobertura
+  - cd aula-08/inteiro && mvn test checkstyle:check spotbugs:check verify -P cobertura
 
  
 cache:
