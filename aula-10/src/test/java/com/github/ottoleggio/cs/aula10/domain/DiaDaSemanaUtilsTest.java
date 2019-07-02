@@ -1,6 +1,7 @@
-package com.github.gustavohenriquerssilva.cs.aula10.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import com.github.gustavohenriquerssilva.cs.aula10.domain.DiaDaSemanaUtils;
 
 import org.junit.jupiter.api.Test;
 

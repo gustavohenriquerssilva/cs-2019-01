@@ -413,38 +413,39 @@ public final class DiaDaSemanaUtils {
      * finalizando em 6 para domingo
      */
     public static int executaPrograma(final String[] argumentos) {
-        if (ValidaEntradaUtils.validadorEntrada(argumentos) == -1) {
+        final int um = 1;
+        if (VerificaEntradaUtils.verifiqueValor(argumentos) != um) {
             return -1;
         }
 
         int resultado = -1;
-        final int igual = 0;
 
-        if (obtenhaDataMaior(argumentos[DATA_REF],
-        argumentos[DATA_INTERESSE]) == igual) {
-            resultado = Integer.parseInt(argumentos[DIA_DA_SEMANA]);
+        final int tres = 3;
+        if (obtenhaDataMaior(argumentos[0],
+        argumentos[2]) == 0) {
+            resultado = Integer.parseInt(argumentos[tres]);
         }
 
         final int maior = 1;
 
-        if (obtenhaDataMaior(argumentos[DATA_REF],
-        argumentos[DATA_INTERESSE]) == maior) {
+        if (obtenhaDataMaior(argumentos[0],
+        argumentos[2]) == maior) {
             resultado = avancaDiaDaSemana(avancaData(
-                argumentos[DATA_REF],
-                argumentos[DATA_INTERESSE],
-                Integer.parseInt(argumentos[ANO_BISSEXTO])),
-                Integer.parseInt(argumentos[DIA_DA_SEMANA]));
+                argumentos[0],
+                argumentos[2],
+                Integer.parseInt(argumentos[1])),
+                Integer.parseInt(argumentos[tres]));
         }
 
         final int menor = -1;
 
-        if (obtenhaDataMaior(argumentos[DATA_REF],
-        argumentos[DATA_INTERESSE]) == menor) {
+        if (obtenhaDataMaior(argumentos[0],
+        argumentos[2]) == menor) {
             resultado = recuaDiaDaSemana(recuaData(
-                argumentos[DATA_REF],
-                argumentos[DATA_INTERESSE],
-                Integer.parseInt(argumentos[ANO_BISSEXTO])),
-                Integer.parseInt(argumentos[DIA_DA_SEMANA]));
+                argumentos[0],
+                argumentos[2],
+                Integer.parseInt(argumentos[1])),
+                Integer.parseInt(argumentos[tres]));
         }
 
         return resultado;
