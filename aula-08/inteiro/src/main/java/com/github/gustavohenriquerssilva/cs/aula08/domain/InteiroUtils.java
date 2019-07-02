@@ -35,12 +35,7 @@ public final class InteiroUtils {
         final File arquivo = new File(caminho);
 
         if (!arquivo.exists()) {
-            throw new IllegalArgumentException("O arquivo não existe.");
-        }
-
-        final int bytesMinimo = 4;
-        if (arquivo.length() < bytesMinimo) {
-            throw new IllegalArgumentException("Dados insuficientes no arquivo.");
+            throw new IllegalArgumentException("O arquivo não existe");
         }
 
         final InputStream fis = Files.newInputStream(Paths.get(caminho));

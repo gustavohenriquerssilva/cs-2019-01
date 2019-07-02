@@ -57,7 +57,7 @@ public final class EncontreUtils {
         }
 
         br.close();
-        return String.format("Encontradas: %d .", ocorrencias);
+        return String.format("Encontradas: %d.", ocorrencias);
     }
 
     /**
