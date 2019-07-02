@@ -5,7 +5,6 @@ script:
   - cd ../../aula-07/vetor/java && mvn test checkstyle:check pmd:check spotbugs:check
   - cd ../../../aula-08/encontre && mvn test checkstyle:check spotbugs:check verify -P cobertura
   - cd ../inteiro && mvn test checkstyle:check spotbugs:check verify -P cobertura
-  - cd ../jpeg && mvn test checkstyle:check spotbugs:check verify -P cobertura
 
  
 cache:
