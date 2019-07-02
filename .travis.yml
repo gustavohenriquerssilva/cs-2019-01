@@ -4,13 +4,15 @@ script:
   - cd aula-01/java && mvn test checkstyle:check spotbugs:check verify -P cobertura
   - cd ..
   - cd ..
-  - cd aula-07 / vetor / java && mvn teste checkstyle: confira spotbugs: cheque verifique -P Cobertura
+  - cd aula-07 / vetor / java && mvn teste checkstyle:check spotbugs: cheque verifique -P Cobertura
   - cd ..
   - cd ..
   - cd ..
   - cd aula-08/encontre && mvn test checkstyle:check spotbugs:check verify -P cobertura
   - cd ..
   - cd inteiro && mvn test checkstyle:check spotbugs:check verify -P cobertura
+  - cd ..
+  - cd jpeg && mvn test checkstyle:check spotbugs:check verify -P cobertura
 
  
 cache:
