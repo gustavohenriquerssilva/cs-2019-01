@@ -1,18 +1,11 @@
 language: java
 
 script:
-   - cd aula-01/java && mvn test checkstyle:check spotbugs:check verify -P cobertura
-  - cd ..
-  - cd ..
-  - cd aula-07/vetor/java && mvn test checkstyle:check spotbugs:check verify -P cobertura
-  - cd ..
-  - cd ..
-  - cd ..
-  - cd aula-08/encontre && mvn test checkstyle:check spotbugs:check verify -P cobertura
-  - cd ..
-  - cd inteiro && mvn test checkstyle:check spotbugs:check verify -P cobertura
-  - cd ..
-  - cd jpeg && mvn test checkstyle:check spotbugs:check verify -P cobertura
+  - cd aula-01/java && mvn test checkstyle:check spotbugs:check verify -P cobertura
+  - cd ../../aula-07/vetor/java && mvn test checkstyle:check pmd:check spotbugs:check
+  - cd ../../../aula-08/encontre && mvn test checkstyle:check spotbugs:check verify -P cobertura
+  - cd ../inteiro && mvn test checkstyle:check spotbugs:check verify -P cobertura
+  - cd ../jpeg && mvn test checkstyle:check spotbugs:check verify -P cobertura
 
  
 cache:
