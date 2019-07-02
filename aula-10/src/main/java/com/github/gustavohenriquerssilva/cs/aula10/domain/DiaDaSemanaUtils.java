@@ -413,39 +413,43 @@ public final class DiaDaSemanaUtils {
      * finalizando em 6 para domingo
      */
     public static int executaPrograma(final String[] argumentos) {
-        final int um = 1;
-        if (VerificaEntradaUtils.verifiqueValor(argumentos) != um) {
+        if (VerificaEntradaUtils.verifiqueValor(argumentos) == -1) {
             return -1;
         }
 
         int resultado = -1;
+        final int igual = 0;
 
-        final int tres = 3;
-        if (obtenhaDataMaior(argumentos[0],
-        argumentos[2]) == 0) {
-            resultado = Integer.parseInt(argumentos[tres]);
+        final int dataRef = 2;
+        final int dataInteresse = 0;
+        final int diaSemana = 3;
+        final int anoBisexto = 1;
+
+        if (obtenhaDataMaior(argumentos[dataRef],
+        argumentos[dataInteresse]) == igual) {
+            resultado = Integer.parseInt(argumentos[diaSemana]);
         }
 
         final int maior = 1;
 
-        if (obtenhaDataMaior(argumentos[0],
-        argumentos[2]) == maior) {
+        if (obtenhaDataMaior(argumentos[dataRef],
+        argumentos[dataInteresse]) == maior) {
             resultado = avancaDiaDaSemana(avancaData(
-                argumentos[0],
-                argumentos[2],
-                Integer.parseInt(argumentos[1])),
-                Integer.parseInt(argumentos[tres]));
+                argumentos[dataRef],
+                argumentos[dataInteresse],
+                Integer.parseInt(argumentos[anoBisexto])),
+                Integer.parseInt(argumentos[diaSemana]));
         }
 
         final int menor = -1;
 
         if (obtenhaDataMaior(argumentos[0],
-        argumentos[2]) == menor) {
+        argumentos[dataInteresse]) == menor) {
             resultado = recuaDiaDaSemana(recuaData(
-                argumentos[0],
-                argumentos[2],
-                Integer.parseInt(argumentos[1])),
-                Integer.parseInt(argumentos[tres]));
+                argumentos[dataRef],
+                argumentos[dataInteresse],
+                Integer.parseInt(argumentos[anoBisexto])),
+                Integer.parseInt(argumentos[diaSemana]));
         }
 
         return resultado;

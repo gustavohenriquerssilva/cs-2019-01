@@ -1,7 +1,6 @@
+package com.github.gustavohenriquerssilva.cs.aula10.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import com.github.gustavohenriquerssilva.cs.aula10.domain.VerificaEntradaUtils;
 
 import org.junit.jupiter.api.Test;
 
@@ -30,28 +29,28 @@ class VerificaEntradaUtilsTest {
     String[] teste21 = {"20190229", "2018", "20190301", "3"};
 
     @Test
-    void testQtdArgCheck() {
+    void testVerifiqueTamanhoArg() {
         assertEquals(-1, VerificaEntradaUtils.verifiqueTamanhoArg(teste15));
     }
 
     @Test
-    void testSeInteiro() {
+    void testEhInteiro() {
         assertEquals(-1, VerificaEntradaUtils.ehInteiro(teste16));
         assertEquals(-1, VerificaEntradaUtils.ehInteiro(teste17));
     }
 
     @Test
-    void testLimiteSemanaCheck() {
+    void testVerifiqueSemana() {
         assertEquals(-1, VerificaEntradaUtils.verifiqueSemana(7));
     }
 
     @Test
-    void testAnoBissextoCheck() {
+    void testVerifiqueAnoBisexto() {
         assertEquals(-1, VerificaEntradaUtils.verifiqueAnoBisexto(0));
     }
 
     @Test
-    void testDataInvalida() {
+    void testVerifiqueData() {
         assertEquals(-1, VerificaEntradaUtils.verifiqueData("00190615", 2018));
         assertEquals(-1, VerificaEntradaUtils.verifiqueData("20190015", 2018));
         assertEquals(-1, VerificaEntradaUtils.verifiqueData("20191315", 2018));

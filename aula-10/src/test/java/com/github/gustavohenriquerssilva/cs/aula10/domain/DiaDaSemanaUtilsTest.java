@@ -1,11 +1,10 @@
+package com.github.gustavohenriquerssilva.cs.aula10.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.github.gustavohenriquerssilva.cs.aula10.domain.DiaDaSemanaUtils;
-
 import org.junit.jupiter.api.Test;
 
-class ProcessaDataUtilsTest {
+class DiaDaSemanaUtilsTest {
 
     String[] teste1 = {"2010101", "1", "23450101", "1"};
     String[] teste2 = {"100000101", "", "23450101", "1"};
@@ -32,7 +31,7 @@ class ProcessaDataUtilsTest {
     String[] teste23 = {"20160331", "2018", "20160332", "3"};
 
     @Test
-    void testSeBissexto() {
+    void testEhBisexto() {
         assertTrue(DiaDaSemanaUtils.ehAnoBisexto(2015, 2015));
         assertTrue(DiaDaSemanaUtils.ehAnoBisexto(2019, 2015));
         assertFalse(DiaDaSemanaUtils.ehAnoBisexto(2018, 2015));
@@ -41,7 +40,7 @@ class ProcessaDataUtilsTest {
     }
 
     @Test
-    void testUltimoDiaDoMes() {
+    void testObtenhaUltDiaMes() {
         assertEquals(31, DiaDaSemanaUtils.obtenhaUltDiaDoMes(1, 2015, 2015));
         assertEquals(29, DiaDaSemanaUtils.obtenhaUltDiaDoMes(2, 2015, 2015));
         assertEquals(28, DiaDaSemanaUtils.obtenhaUltDiaDoMes(2, 2015, 2014));
@@ -60,7 +59,7 @@ class ProcessaDataUtilsTest {
     }
 
     @Test
-    void testQualDataMaior() {
+    void testObtenhaDataMaior() {
         assertEquals(0, DiaDaSemanaUtils.obtenhaDataMaior("20180215", "20180215"));
         assertEquals(1, DiaDaSemanaUtils.obtenhaDataMaior("20180215", "20180216"));
         assertEquals(-1, DiaDaSemanaUtils.obtenhaDataMaior("20180215", "20180214"));
