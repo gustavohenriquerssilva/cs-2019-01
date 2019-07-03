@@ -1,0 +1,5 @@
+com/github/kyriosdata/exemplo/application/console/ProgramaCalendario.class
+com/github/kyriosdata/exemplo/domain/DiaDaSemana.class
+com/github/kyriosdata/exemplo/domain/Calendario.class
+com/github/kyriosdata/exemplo/application/api/DiaDaSemanaController.class
+com/github/kyriosdata/exemplo/application/api/Application.class
