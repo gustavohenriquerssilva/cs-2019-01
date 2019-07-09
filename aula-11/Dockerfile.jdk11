@@ -1,4 +1,4 @@
-FROM kyriosdata/jdk11
+FROM gustavohenriquerssilva/jdk11
 
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 

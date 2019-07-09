@@ -1,7 +1,7 @@
-﻿[![Build Status](https://travis-ci.com/kyriosdata/exemplo.svg)](https://travis-ci.com/kyriosdata/exemplo)
-[![SonarCloud Status](https://sonarcloud.io/api/project_badges/measure?project=com.github.kyriosdata%3Aexemplo&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.github.kyriosdata%3Aexemplo)
-[![Known Vulnerabilities](https://snyk.io/test/github/kyriosdata/exemplo/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/kyriosdata/exemplo?targetFile=pom.xml)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.kyriosdata/exemplo/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.kyriosdata/exemplo)
+﻿[![Build Status](https://travis-ci.com/gustavohenriquerssilva/aula11.svg)](https://travis-ci.com/gustavohenriquerssilva/aula11)
+[![SonarCloud Status](https://sonarcloud.io/api/project_badges/measure?project=com.github.gustavohenriquerssilva%3Aaula11&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.github.gustavohenriquerssilva%3Aaula11)
+[![Known Vulnerabilities](https://snyk.io/test/github/gustavohenriquerssilva/aula11/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/gustavohenriquerssilva/aula11?targetFile=pom.xml)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.gustavohenriquerssilva/aula11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.gustavohenriquerssilva/aula11)
 
 # Escopo e objetivo
 Projeto de referência para software em Java contendo uma biblioteca com um único
@@ -13,8 +13,8 @@ e uma RESTFul API ambas para acesso à funcionalidade.
 
 ## Iniciando...
 
-- `git clone https://github.com/kyriosdata/exemplo`
-- `cd exemplo`
+- `git clone https://github.com/gustavohenriquerssilva/aula11`
+- `cd aula11`
 
 Agora você poderá executar os vários comandos abaixo.
 
@@ -41,27 +41,27 @@ de cobertura, conforme configurado, é satisfeito.
 
 ## Empacotando o projeto
 - `mvn package`<br>
-gera arquivo _exemplo.jar_ no diretório _target_. Observe que
+gera arquivo _aula11.jar_ no diretório _target_. Observe que
 o arquivo gerado não é executável. Um arquivo jar é um arquivo no formato
-zip. Você pode verificar o conteúde deste arquivo ao executar o comando `jar vft exemplo.jar`.
+zip. Você pode verificar o conteúde deste arquivo ao executar o comando `jar vft aula11.jar`.
 
 - `mvn package -P executavel-dir`<br>
-gera _exemplo-dir.jar_, executável, mas dependente do diretório _jars_,
+gera _aula11-dir.jar_, executável, mas dependente do diretório _jars_,
  também criado no diretório _target_. Para executar basta o comando
- `java -jar target/exemplo-dir.jar`. Observe que se o diretório _jars_ for
+ `java -jar target/aula11-dir.jar`. Observe que se o diretório _jars_ for
  removido, então este comando falha. Por último, o diretório _jars_ deve
- ser depositado no mesmo diretório do arquivo _exemplo.jar_.
+ ser depositado no mesmo diretório do arquivo _aula11.jar_.
 
 - `mvn package -P executavel-unico`<br>
  gera jar executável correspondente ao aplicativo a ser executado via linha de comandos,
- em um único arquivo, _target/exemplo-unico.jar_,
+ em um único arquivo, _target/aula11-unico.jar_,
  suficiente para ser transferido e executado. Para executá-lo basta o
- comando `java -jar target/exemplo-unico.jar`.
+ comando `java -jar target/aula11-unico.jar`.
 
  - `mvn package -P api`<br>
  gera jar executável juntamente com todas as dependências reunidas em um único arquivo, 
  _target/api.jar_. Este arquivo jar pode ser transferido para outro diretório
-  ou máquina e ser executado pelo comando `java -jar target/api.jar`. A execução e exemplos
+  ou máquina e ser executado pelo comando `java -jar target/api.jar`. A execução e aula11s
   de chamadas são fornecidos na seção seguinte.
   
 ## Executando a aplicação e a RESTFul API
@@ -69,7 +69,7 @@ gera _exemplo-dir.jar_, executável, mas dependente do diretório _jars_,
 executa o método _main_ da classe indicada na configuração do _plugin_ pertinente
 no arquivo pom.xml. Depende de `mvn compile`.
 
-- `java -jar target/exemplo-unico.jar`<br>
+- `java -jar target/aula11-unico.jar`<br>
 executa o aplicativo por meio do arquivo jar criado pelo comando `mvn package
  -P executavel-unico`, conforme comentado anteriormente. Observe que o comando
  anterior e o corrente produzem o mesmo efeito, contudo, o arquivo jar
@@ -80,7 +80,7 @@ executa o aplicativo por meio do arquivo jar criado pelo comando `mvn package
 
 - `java -jar target/api.jar`<br>
 coloca em execução a API gerada por `mvn package -P api` na porta padrão (8080). Para fazer uso de porta
-diferente use `java -jar -Dserver.port=9876 target/api.jar`, por exemplo. Requisições podem ser
+diferente use `java -jar -Dserver.port=9876 target/api.jar`, por aula11. Requisições podem ser
 submetidas conforme abaixo:
    - Abra o endereço _http://localhost:8080/ds_ no seu navegador, ou forneça 
    a seguinte URL para um dia específico
@@ -88,7 +88,7 @@ submetidas conforme abaixo:
    - Via linha de comandos (curl), `curl http://localhost:8080/ds` ou `curl 
  http://localhost:8080/ds?data=01-01-200`.
    - Página HTML (há uma interface gráfica) no diretório **gui**, basta abrir
-     o arquivo [index.html](http://htmlpreview.github.com/?https://raw.githubusercontent.com/kyriosdata/exemplo/master/gui/index.html).
+     o arquivo [index.html](http://htmlpreview.github.com/?https://raw.githubusercontent.com/gustavohenriquerssilva/aula11/master/gui/index.html).
 
 
 ## Documentação
