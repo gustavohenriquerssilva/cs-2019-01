@@ -6,8 +6,8 @@
 
 package com.github.gustavohenriquerssilva.aula11.application.api;
 
+import com.github.gustavohenriquerssilva.aula11.application.DTO.DiferencaDTO;
 import com.github.gustavohenriquerssilva.aula11.domain.CalendarioUtils;
-import com.github.gustavohenriquerssilva.aula11.application.DTO.DTODiferenca;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,11 +21,11 @@ public class DiferencaController {
 
     @CrossOrigin
     @RequestMapping("ds")
-    public DiaDaSemana diaDaSemana(@RequestParam(value="inicio", defaultValue =
+    public DiferencaDTO diaDaSemana(@RequestParam(value="inicio", defaultValue =
             "não fornecida") String di, @RequestParam(value="fim", defaultValue =
-            "não fornecida") String df, ) {
+            "não fornecida") String df) {
 
-        LocalDate dataIncial = localDateFromString(di);
+        LocalDate dataInicial = localDateFromString(di);
         LocalDate dataFinal = localDateFromString(df);
 
         // Se data não é fornecida, ou é inválida, use o dia corrente.
@@ -37,7 +37,7 @@ public class DiferencaController {
         long diferenca = CalendarioUtils.getDiferencaEntreDatas(dataInicial,
                 dataFinal);
 
-         return new DTODiferenca(diferenca);
+         return new DiferencaDTO(diferenca);
     }
 
     /**
