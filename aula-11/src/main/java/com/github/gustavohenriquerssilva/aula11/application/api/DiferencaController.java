@@ -6,8 +6,8 @@
 
 package com.github.gustavohenriquerssilva.aula11.application.api;
 
-import com.github.gustavohenriquerssilva.aula11.domain.Calendario;
-import com.github.gustavohenriquerssilva.aula11.domain.DTO.DTODiferenca;
+import com.github.gustavohenriquerssilva.aula11.domain.CalendarioUtils;
+import com.github.gustavohenriquerssilva.aula11.application.DTO.DTODiferenca;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
