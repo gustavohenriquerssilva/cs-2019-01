@@ -7,7 +7,7 @@
 package com.github.gustavohenriquerssilva.aula11.application.api;
 
 import com.github.gustavohenriquerssilva.aula11.domain.Calendario;
-import com.github.gustavohenriquerssilva.aula11.domain.DiaDaSemana;
+import com.github.gustavohenriquerssilva.aula11.domain.DTO.DTODiferenca;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,27 +17,27 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @RestController
-public class DiaDaSemanaController {
+public class DiferencaController {
 
     @CrossOrigin
     @RequestMapping("ds")
-    public DiaDaSemana diaDaSemana(@RequestParam(value="data", defaultValue =
-            "não fornecida") String arg) {
+    public DiaDaSemana diaDaSemana(@RequestParam(value="inicio", defaultValue =
+            "não fornecida") String di, @RequestParam(value="fim", defaultValue =
+            "não fornecida") String df, ) {
 
-        LocalDate data = localDateFromString(arg);
+        LocalDate dataIncial = localDateFromString(di);
+        LocalDate dataFinal = localDateFromString(df);
 
         // Se data não é fornecida, ou é inválida, use o dia corrente.
-        if (data == null) {
-            data = LocalDate.now();
+        if (dataInicial == null || dataFinal == null) {
+            dataInicial = LocalDate.now();
+            dataFinal = LocalDate.now();
         }
+        
+        long diferenca = CalendarioUtils.getDiferencaEntreDatas(dataInicial,
+                dataFinal);
 
-        int dia = data.getDayOfMonth();
-        int mes = data.getMonthValue();
-        int ano = data.getYear();
-
-        int ds = Calendario.diaDaSemana(dia, mes, ano);
-
-        return new DiaDaSemana(data, Calendario.semana[ds]);
+         return new DTODiferenca(diferenca);
     }
 
     /**
