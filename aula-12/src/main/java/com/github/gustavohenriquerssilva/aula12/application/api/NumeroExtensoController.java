@@ -40,14 +40,13 @@ public class NumeroExtensoController {
      *
      * @throws IllegalArgumentException Se número contiver mais de 4 dígitos
      */
-    public static NumeroDTO numeroExtenso(@RequestParam(value = "numero",
-            defaultValue = "não fornecida") String numeroParam) {
+    public static NumeroDTO numeroExtenso(
+            @RequestParam(value = "numero", defaultValue = "não fornecida") String numeroParam) {
 
-                String numero = numeroParam;
+        String numero = numeroParam;
         // Se data não é fornecida, ou é inválida, use o dia corrente.
         if (numeroParam.length() > 4) {
-            throw new IllegalArgumentException(
-                    "Valor informado contém mais de 4 dígitos");
+            throw new IllegalArgumentException("Valor informado contém mais de 4 dígitos");
         }
 
         String numeroPorExtenso = TransformaValorUtils.getValorPorExtenso(numero);
