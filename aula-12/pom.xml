@@ -70,7 +70,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.mainClass>
-            com.github.gustavohenriquerssilva.aula12.application.console.CalendarioUtils
+            com.github.gustavohenriquerssilva.aula12.domain.TransformaValorUtils
         </project.mainClass>
 
         <tools.dir>${project.basedir}/tools</tools.dir>
@@ -566,7 +566,7 @@
                         <configuration>
                             <targetClasses>
                                 <param>
-                                    com.github.gustavohenriquerssilva.aula12.domain.Calendario
+                                    com.github.gustavohenriquerssilva.aula12.domain.TransformaValorUtils
                                 </param>
                             </targetClasses>
                             <targetTests>
