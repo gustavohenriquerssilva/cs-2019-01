@@ -14,9 +14,11 @@ public class DiferencaDTO {
 
     /**
      * Armazena o valor da diferenca entre duas datas.
-     * @param diferencaDias
+     *
+     * @param diferencaDias Valor que deve ser armazenado
      */
-    public DiferencaDTO(long diferencaDias) {
+    public DiferencaDTO(long diferencaDias)
+    {
         this.diferencaDias = diferencaDias;
     }
 
@@ -33,6 +35,6 @@ public class DiferencaDTO {
 
     @Override
     public int hashCode() {
-        return (int) (diferencaDias ^ (diferencaDias >>> 32));
+        return (int)diferencaDias;
     }
 }
