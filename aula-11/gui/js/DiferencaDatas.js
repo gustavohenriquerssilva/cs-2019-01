@@ -1,6 +1,11 @@
-// Path para a requisição (URL)
-const PATH = "http://localhost:8080/ds?dataFinal=";
+/*
+ * Path para a requisição (URL)
+ */
+const PATH = "http://localhost:8080/ds?dataInicial=";
 
+/*
+ * Obtém data inicial e final e retorna a diferença em dias para essas datas.
+ */
 function atualizaDiaDaSemana() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -10,25 +15,32 @@ function atualizaDiaDaSemana() {
         }
     };
 
-    let di = document.getElementById("dataFinalInicial").value;
-    let dataFinal = formataDataFinal(di);
-    let df = document.getElementById("dataFinalFinal").value;
-    let dataFinal = formataDataFinal(df);
+    let di = document.getElementById("dataInicial").value;
+    let dataFinal = formatarData(di);
+    let df = document.getElementById("dataFinal").value;
+    let dataFinal = formatarData(df);
     xhttp.open("GET", monteURL(dataInicial, dataFinal), true);
     xhttp.send();
 }
 
+/*
+ * Obtém URL montada.
+ */
 function monteURL(dataInicial, dataFinal) {
     return PATH + dataInicial + "&dataFinal=" + dataFinal;
 }
 
-function dataFinalCorrente() {
+/*
+ *  
+ */
+function data() {
+    document.getElementById("dataInicial").valueAsDate = new Date();
     document.getElementById("dataFinal").valueAsDate = new Date();
 }
 
 // Funções para integração (satisfazer contrato do servidor)
 
-function extraiNumeroExtensoResposta(resposta) {
+function extraiDiaDaSemanaDaResposta(resposta) {
     return JSON.parse(resposta).diaDaSemana;
 }
 
@@ -43,8 +55,8 @@ function formataAno(n) {
 }
 
 // ENTRADA: ano-mes-dia SAIDA: dd-mm-yyyy
-function formataDataFinal(dataFinal) {
-    let [a, m, d] = dataFinal.split("-");
+function formatarData(data) {
+    let [a, m, d] = data.split("-");
 
     let dia = formataDiaOuMes(d);
     let mes = formataDiaOuMes(m);

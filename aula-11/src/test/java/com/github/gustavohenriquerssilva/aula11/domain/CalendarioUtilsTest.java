@@ -4,10 +4,10 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package com.github.gustavohenriquerssilva.aula12.domain;
+package com.github.gustavohenriquerssilva.aula11.domain;
 
-import com.github.gustavohenriquerssilva.aula12.application.DTO.DiferencaDTO;
-import com.github.gustavohenriquerssilva.aula12.application.api.DiferencaController;
+import com.github.gustavohenriquerssilva.aula11.application.DTO.DiferencaDTO;
+import com.github.gustavohenriquerssilva.aula11.application.api.DiferencaController;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

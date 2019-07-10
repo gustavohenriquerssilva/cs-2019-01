@@ -4,10 +4,10 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package com.github.gustavohenriquerssilva.aula12.application.api;
+package com.github.gustavohenriquerssilva.aula11.application.api;
 
-import com.github.gustavohenriquerssilva.aula12.application.DTO.DiferencaDTO;
-import com.github.gustavohenriquerssilva.aula12.domain.CalendarioUtils;
+import com.github.gustavohenriquerssilva.aula11.application.DTO.DiferencaDTO;
+import com.github.gustavohenriquerssilva.aula11.domain.CalendarioUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,7 +65,7 @@ public class DiferencaController {
      *
      * @param data Sequência de caracteres no formato dd-MM-yyyy.
      * @return Instância de {@link LocalDate} ou {@code null}, se a sequência
-     * não está no formato esperado (por aula12, "01-01-2018")
+     * não está no formato esperado (por aula11, "01-01-2018")
      */
     public static LocalDate localDateFromString(String data) {
         try {
