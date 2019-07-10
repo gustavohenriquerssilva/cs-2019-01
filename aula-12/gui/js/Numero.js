@@ -28,7 +28,7 @@ function dataFinalCorrente() {
 
 // Funções para integração (satisfazer contrato do servidor)
 
-function extraiDiaDaSemanaDaResposta(resposta) {
+function extraiNumeroExtensoResposta(resposta) {
     return JSON.parse(resposta).diaDaSemana;
 }
 

@@ -1,4 +1,4 @@
-package com.github.gustavohenriquerssilva.aula11.domain;
+package com.github.gustavohenriquerssilva.aula12.domain;
 /*
  * Copyright (c) 2016.
  * Fábrica de Software - Instituto de Informática (UFG)
@@ -6,8 +6,8 @@ package com.github.gustavohenriquerssilva.aula11.domain;
  */
 
 
-import com.github.gustavohenriquerssilva.aula11.application.DTO.DiferencaDTO;
-import com.github.gustavohenriquerssilva.aula11.application.api.DiferencaController;
+import com.github.gustavohenriquerssilva.aula12.application.DTO.DiferencaDTO;
+import com.github.gustavohenriquerssilva.aula12.application.api.DiferencaController;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

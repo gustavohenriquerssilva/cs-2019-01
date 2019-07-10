@@ -4,7 +4,7 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package com.github.gustavohenriquerssilva.aula11.domain;
+package com.github.gustavohenriquerssilva.aula12.domain;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
