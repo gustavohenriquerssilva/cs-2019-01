@@ -1,6 +1,8 @@
+package com.github.gustavohenriquerssilva.aula12.application.DTO;
+
 /**
- * Data Transfer Object (DTO) usado para transferir dados entre subsistemas de um software.
- * Criada exclusivamente para ilustrar a resposta via RESTFul API.
+ * Data Transfer Object (DTO) usado para transferir dados entre subsistemas de
+ * um software. Criada exclusivamente para ilustrar a resposta via RESTFul API.
  */
 public class NumeroDTO {
 
