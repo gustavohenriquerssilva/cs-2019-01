@@ -10,8 +10,8 @@ function atualizaDiaDaSemana() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            let dds = extraiDiaDaSemanaDaResposta(xhttp.responseText);
-            document.getElementById("resultado").innerHTML = dds;
+            let diferenca = extraiDiferencaEntreDatas(xhttp.responseText);
+            document.getElementById("resultado").innerHTML = diferenca;
         }
     };
 
@@ -25,6 +25,11 @@ function atualizaDiaDaSemana() {
 
 /*
  * Obtém URL montada.
+ *
+ * @param {String} dataInicial data inicial informada na tela
+ * @param {String} dataFinal data final informada na tela
+ *
+ * @returns url concatenada
  */
 function monteURL(dataInicial, dataFinal) {
     return PATH + dataInicial + "&dataFinal=" + dataFinal;
@@ -40,8 +45,8 @@ function data() {
 
 // Funções para integração (satisfazer contrato do servidor)
 
-function extraiDiaDaSemanaDaResposta(resposta) {
-    return JSON.parse(resposta).diaDaSemana;
+function extraiDiferencaEntreDatas(resposta) {
+    return JSON.parse(resposta).diferenca;
 }
 
 // Dia ou mês deve possuir dois dígitos
