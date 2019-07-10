@@ -14,17 +14,22 @@ import java.time.temporal.ChronoUnit;
  */
 public class CalendarioUtils {
 
+    /**
+     * Construtor privado da classe.
+     */
+    private CalendarioUtils() {
 
-	/**
+    }
+
+    /**
      * Obtém a diferença entre datas
      *
      * @param dataInicial Ignorados.
-     * @param dataFinal Ignorados.
-     *
+     * @param dataFinal   Ignorados.
      * @return Diferença de dias entre a data inicial e final
      */
     public static long getDiferencaEntreDatas(final LocalDate dataInicial,
-                                             final LocalDate dataFinal) {
+                                              final LocalDate dataFinal) {
 
         return ChronoUnit.DAYS.between(dataInicial, dataFinal);
     }

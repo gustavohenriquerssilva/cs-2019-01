@@ -3,7 +3,7 @@ package com.github.gustavohenriquerssilva.aula11.application.DTO;
 
 /**
  * Data Transfer Object (DTO) usado para transferir dados entre subsistemas de um software.
- * Criada exclusivamente para ilustrar a resposta via RESTFul API. 
+ * Criada exclusivamente para ilustrar a resposta via RESTFul API.
  */
 public class DiferencaDTO {
 
@@ -24,4 +24,15 @@ public class DiferencaDTO {
         return this.diferencaDias;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        DiferencaDTO that = (DiferencaDTO) o;
+
+        return diferencaDias == that.diferencaDias;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (diferencaDias ^ (diferencaDias >>> 32));
+    }
 }

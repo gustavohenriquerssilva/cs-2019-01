@@ -6,22 +6,25 @@
 
 package com.github.gustavohenriquerssilva.aula11.domain;
 
+import com.github.gustavohenriquerssilva.aula11.application.DTO.DiferencaDTO;
+import com.github.gustavohenriquerssilva.aula11.application.api.DiferencaController;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CalendarioTest {
+public class CalendarioUtilsTest {
 
     @Test
-    public void diferencaDiasController() {
-        DiferencaDTO diferenca = new DiferencaDTO(2);
-        assertEquals(diferenca, DiferencaController.diferencaDias("10-05-2019", "12-05-2019"));
+    public void diferencaDiasCorreto() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dataIncial = LocalDate.parse("10-05-2019", fmt);
+        LocalDate dataFinal = LocalDate.parse("12-05-2019", fmt);
+        int diferenca = 2;
+        assertEquals(diferenca, CalendarioUtils.getDiferencaEntreDatas(dataIncial, dataFinal));
     }
-
-    @Test 
-    public void 
 }
 
 

@@ -19,10 +19,28 @@ import java.time.format.DateTimeFormatter;
 @RestController
 public class DiferencaController {
 
+    /**
+     * Construtor privado da classe.
+     */
+    private DiferencaController() {
+
+    }
+
     @CrossOrigin
     @RequestMapping("ds")
-    public DiferencaDTO diaDaSemana(@RequestParam(value="inicio", defaultValue =
-            "não fornecida") String di, @RequestParam(value="fim", defaultValue =
+
+    /**
+     * Obtém objeto que informa a diferença em dias entre duas datas.
+     *
+     * @param di A data inicial informada na tela.
+     * @param df A data final informada na tela.
+     *
+     * @return Instância de {@link DiferencaDTO}.
+     *
+     * @throws IllegalArgumentException Se data inicial ou final não for informada.
+     */
+    public static DiferencaDTO diferencaDias(@RequestParam(value = "inicio", defaultValue =
+            "não fornecida") String di, @RequestParam(value = "fim", defaultValue =
             "não fornecida") String df) {
 
         LocalDate dataInicial = localDateFromString(di);
@@ -30,25 +48,25 @@ public class DiferencaController {
 
         // Se data não é fornecida, ou é inválida, use o dia corrente.
         if (dataInicial == null || dataFinal == null) {
-            dataInicial = LocalDate.now();
-            dataFinal = LocalDate.now();
+            throw new IllegalArgumentException(
+                    "Datas não informadas");
         }
-        
+
         long diferenca = CalendarioUtils.getDiferencaEntreDatas(dataInicial,
                 dataFinal);
 
-         return new DiferencaDTO(diferenca);
+        return new DiferencaDTO(diferenca);
     }
 
     /**
      * Recupera a instância de {@link LocalDate} correspondente à sequência
      * de caracteres.
-     * @param data Sequência de caracteres no formato dd-MM-yyyy.
      *
+     * @param data Sequência de caracteres no formato dd-MM-yyyy.
      * @return Instância de {@link LocalDate} ou {@code null}, se a sequência
      * não está no formato esperado (por aula11, "01-01-2018")
      */
-    public LocalDate localDateFromString(String data) {
+    public static LocalDate localDateFromString(String data) {
         try {
             DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             return LocalDate.parse(data, fmt);
