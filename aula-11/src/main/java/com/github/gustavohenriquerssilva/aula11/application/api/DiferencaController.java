@@ -19,13 +19,6 @@ import java.time.format.DateTimeFormatter;
 @RestController
 public class DiferencaController {
 
-    /**
-     * Construtor privado da classe.
-     */
-    private DiferencaController() {
-
-    }
-
     @CrossOrigin
     @RequestMapping("ds")
 
