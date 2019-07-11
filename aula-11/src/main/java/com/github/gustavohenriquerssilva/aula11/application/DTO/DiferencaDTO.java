@@ -30,16 +30,5 @@ public class DiferencaDTO {
     public long obtenhaDTODiferencaDias() {
         return this.diferencaDias;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        DiferencaDTO that = (DiferencaDTO) o;
-
-        return diferencaDias == that.diferencaDias;
-    }
-
-    @Override
-    public int hashCode() {
-        return (int)diferencaDias;
-    }
+    
 }
