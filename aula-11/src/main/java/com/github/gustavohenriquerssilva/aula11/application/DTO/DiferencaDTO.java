@@ -22,13 +22,15 @@ public class DiferencaDTO {
         this.diferencaDias = diferencaDias;
     }
 
-	/**
+    public long getDiferencaDias() {
+        return diferencaDias;
+    }
+
+    public void setDiferencaDias(long diferencaDias) {
+        this.diferencaDias = diferencaDias;
+    }
+
+    /**
      * Obtém valor armazenado
      *
-     * @return Valor armazenado
-     */
-    public long obtenhaDTODiferencaDias() {
-        return this.diferencaDias;
-    }
-    
 }
