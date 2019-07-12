@@ -1,22 +1,22 @@
 /*
  * Path para a requisição (URL)
  */
-const PATH = "http://localhost:8080/ds?dataInicial=";
+const PATH = "http://localhost:9875/ds?dataInicial=";
 
 /*
  * Obtém data inicial e final e retorna a diferença em dias para essas datas.
  */
-function atualizaDiaDaSemana() {
+function atualizaDiferenca() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let diferenca = extraiDiferencaEntreDatas(xhttp.responseText);
-            document.getElementById("resultado").innerHTML = diferenca;
+            document.getElementById("resultado").innerHTML = diferencaDias;
         }
     };
 
     let di = document.getElementById("dataInicial").value;
-    let dataFinal = formatarData(di);
+    let dataInicial = formatarData(di);
     let df = document.getElementById("dataFinal").value;
     let dataFinal = formatarData(df);
     xhttp.open("GET", monteURL(dataInicial, dataFinal), true);
@@ -46,7 +46,7 @@ function data() {
 // Funções para integração (satisfazer contrato do servidor)
 
 function extraiDiferencaEntreDatas(resposta) {
-    return JSON.parse(resposta).diferenca;
+    return JSON.parse(resposta).diferencaDias;
 }
 
 // Dia ou mês deve possuir dois dígitos

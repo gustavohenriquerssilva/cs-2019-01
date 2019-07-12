@@ -37,9 +37,9 @@ public class DiferencaController {
      * @throws IllegalArgumentException Se data inicial ou final
      * não for informada.
      */
-    public static DiferencaDTO diferencaDias(@RequestParam(value = "inicio",
+    public static DiferencaDTO diferencaDias(@RequestParam(value = "dataInicial",
             defaultValue = "não fornecida") final String di,
-                                             @RequestParam(value = "fim", defaultValue = "não fornecida") final String df) {
+                                             @RequestParam(value = "dataFinal", defaultValue = "não fornecida") final String df) {
 
         final LocalDate dataInicial = localDateFromString(di);
         final LocalDate dataFinal = localDateFromString(df);
@@ -68,7 +68,7 @@ public class DiferencaController {
         try {
             final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             return LocalDate.parse(data, fmt);
-        } catch (IllegalArgumentException exp) {
+        } catch (Exception exp) {
             return null;
         }
     }

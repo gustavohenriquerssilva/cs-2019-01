@@ -39,7 +39,7 @@ public final class CalendarioUtils {
         try {
             return Math.abs(ChronoUnit.DAYS.between(dataInicial, dataFinal));
         } catch (IllegalArgumentException | DateTimeException
-                | ArithmeticException ex) {
+                | ArithmeticException | NullPointerException ex) {
             throw new IllegalArgumentException("Data inválida", ex);
         }
     }
