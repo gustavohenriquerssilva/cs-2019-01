@@ -25,7 +25,7 @@ public class TransformaValorUtils {
      * Obtém o número por extenso
      *
      * @param numero Número informado na tela. Valor entre 0 e 9999, inclusive.
-     * @return Número por extenso. O valor 2 será dois, para 20 será 20.
+     * @return Número por extenso. O valor 2 será dois, para 20 será vinte.
      * 
      * @throws IllegalArgumentException Se número contiver mais de 4 dígitos
      */
