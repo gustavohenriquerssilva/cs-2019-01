@@ -30,7 +30,8 @@ public class NumeroExtensoController {
     /**
      * Obtém objeto que informa o número por extenso.
      *
-     * @param numeroParam O número informada na tela.
+     * @param numeroParam O número informada na tela que será
+     * transformado para tipo inteiro absoluto.
      *
      * @return Instância de {@link NumeroDTO}.
      *
@@ -43,7 +44,8 @@ public class NumeroExtensoController {
             throw new IllegalArgumentException("Valor informado contém mais de 4 dígitos");
         }
 
-        final int numero = Integer.parseInt(numeroParam);
+        String numeroAbsoluto = numeroParam.replace("-", "");
+        final int numero = Integer.parseInt(numeroAbsoluto);
         TransformaValorUtils transValor = new TransformaValorUtils();
         String numeroPorExtenso = transValor.getValorPorExtenso(numero);
 
