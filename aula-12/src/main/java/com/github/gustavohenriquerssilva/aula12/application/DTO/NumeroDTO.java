@@ -3,6 +3,8 @@ package com.github.gustavohenriquerssilva.aula12.application.DTO;
 /**
  * Data Transfer Object (DTO) usado para transferir dados entre subsistemas de
  * um software. Criada exclusivamente para ilustrar a resposta via RESTFul API.
+ * 
+ * @author Gustavo Henrique Rodrigues Santos Silva
  */
 public class NumeroDTO {
 
@@ -16,7 +18,7 @@ public class NumeroDTO {
      *
      * @param numero Valor que deve ser armazenado
      */
-    public NumeroDTO(String numero)
+    public NumeroDTO(final String numero)
     {
         this.numero = numero;
     }
@@ -26,19 +28,8 @@ public class NumeroDTO {
      *
      * @return Valor armazenado
      */
-    public String obtenhaNumeroDTO() {
-        return this.numero;
+    public String getNumero() {
+        return numero;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        NumeroDTO that = (NumeroDTO) o;
-
-        return numero == that.numero;
-    }
-
-    @Override
-    public int hashCode() {
-        return Integer.parseInt(numero);
-    }
 }
