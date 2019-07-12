@@ -15,7 +15,7 @@ public class Application {
     /*
     / Ponto de entrada da API
     */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         SpringApplication.run(Application.class, args);
     }
 }

@@ -6,7 +6,7 @@
 
 package com.github.gustavohenriquerssilva.aula11.application.api;
 
-import com.github.gustavohenriquerssilva.aula11.application.DTO.DiferencaDTO;
+import com.github.gustavohenriquerssilva.aula11.application.dto.DiferencaDTO;
 import com.github.gustavohenriquerssilva.aula11.domain.CalendarioUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Tem a finalidade de execução do Controller.
+ * @author Gustavo Henrique Rodrigues Santos Silva
+ */
 @RestController
 public class DiferencaController {
 
@@ -30,15 +34,15 @@ public class DiferencaController {
      *
      * @return Instância de {@link DiferencaDTO}.
      *
-     * @throws IllegalArgumentException Se data inicial ou final não for informada.
+     * @throws IllegalArgumentException Se data inicial ou final
+     * não for informada.
      */
     public static DiferencaDTO diferencaDias(@RequestParam(value = "inicio",
-            defaultValue = "não fornecida") String di,
-            @RequestParam(value = "fim", defaultValue = "não fornecida")
-            String df) {
+            defaultValue = "não fornecida") final String di,
+                                             @RequestParam(value = "fim", defaultValue = "não fornecida") final String df) {
 
-        LocalDate dataInicial = localDateFromString(di);
-        LocalDate dataFinal = localDateFromString(df);
+        final LocalDate dataInicial = localDateFromString(di);
+        final LocalDate dataFinal = localDateFromString(df);
 
         // Se data não é fornecida, ou é inválida, use o dia corrente.
         if (dataInicial == null || dataFinal == null) {
@@ -46,7 +50,7 @@ public class DiferencaController {
                     "Datas não informadas");
         }
 
-        long diferenca = CalendarioUtils.getDiferencaEntreDatas(dataInicial,
+        final long diferenca = CalendarioUtils.getDiferencaEntreDatas(dataInicial,
                 dataFinal);
 
         return new DiferencaDTO(diferenca);
@@ -60,11 +64,11 @@ public class DiferencaController {
      * @return Instância de {@link LocalDate} ou {@code null}, se a sequência
      * não está no formato esperado (por aula11, "01-01-2018")
      */
-    public static LocalDate localDateFromString(String data) {
+    public static LocalDate localDateFromString(final String data) {
         try {
-            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             return LocalDate.parse(data, fmt);
-        } catch (Exception exp) {
+        } catch (IllegalArgumentException exp) {
             return null;
         }
     }

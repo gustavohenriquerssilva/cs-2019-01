@@ -6,13 +6,16 @@
 
 package com.github.gustavohenriquerssilva.aula11.domain;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 /**
- * Reúne a diferença entre datas
+ * Implementa métodos relacionados ao calendário.
+ *
+ * @author Gustavo Henrique Rodrigues Santos Silva
  */
-public class CalendarioUtils {
+public final class CalendarioUtils {
 
     /**
      * Construtor privado da classe.
@@ -22,15 +25,23 @@ public class CalendarioUtils {
     }
 
     /**
-     * Obtém a diferença entre datas
+     * Obtém a diferença entre datas.
      *
-     * @param dataInicial Ignorados.
-     * @param dataFinal   Ignorados.
-     * @return Diferença de dias entre a data inicial e final
+     * @param dataInicial A data inicial informada na tela.
+     * @param dataFinal   A data final informada na tela.
+     * @return Quantidade de dias absoluta entre data inicial e final.
+     *
+     * @throws IllegalArgumentException Se data for inválida.
      */
     public static long getDiferencaEntreDatas(final LocalDate dataInicial,
                                               final LocalDate dataFinal) {
 
-        return ChronoUnit.DAYS.between(dataInicial, dataFinal);
+        try {
+            return Math.abs(ChronoUnit.DAYS.between(dataInicial, dataFinal));
+        } catch (IllegalArgumentException | DateTimeException
+                | ArithmeticException ex) {
+            throw new IllegalArgumentException("Data inválida", ex);
+        }
     }
+
 }
