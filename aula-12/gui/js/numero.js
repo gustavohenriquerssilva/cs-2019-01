@@ -1,12 +1,13 @@
 /*
  * Path para a requisição (URL)
  */
-const PATH = "http://localhost:8080/ds?numero=";
+const PATH = "http://localhost:8080/ds?";
 
 /*
  * Obtém número por extenso
+ * Interage com o servidor e exibe o número por extenso para o usuário.
  */
-function atualizaDiaDaSemana() {
+function atualizaNumeroExtenso() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -17,7 +18,7 @@ function atualizaDiaDaSemana() {
 
     let numero = document.getElementById("numero").value;
 
-    xhttp.open("GET", monteURL(numero), true);
+    xhttp.open("GET", montaURL(numero), true);
     xhttp.send();
 }
 
@@ -29,11 +30,11 @@ function atualizaDiaDaSemana() {
  * @returns url concatenada
  */
 function montaURL(numero) {
-    return PATH + numero;
+    return PATH + "numero=" + numero;
 }
 
 // Funções para integração (satisfazer contrato do servidor)
 
 function extraiNumeroPorExtenso(resposta) {
-    return JSON.parse(resposta).numeroExtenso;
+    return JSON.parse(resposta).numero;
 }
