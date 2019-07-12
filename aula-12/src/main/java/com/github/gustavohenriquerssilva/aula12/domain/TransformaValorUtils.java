@@ -22,11 +22,10 @@ public class TransformaValorUtils {
     private int milhar;
 
     /**
-     * Obtém a diferença entre datas
+     * Obtém o número por extenso
      *
-     * @param dataInicial Ignorados.
-     * @param dataFinal   Ignorados.
-     * @return Diferença de dias entre a data inicial e final
+     * @param numero Número informado na tela. Valor entre 0 e 9999, inclusive.
+     * @return Número por extenso. O valor 2 será dois, para 20 será 20.
      * 
      * @throws IllegalArgumentException Se número contiver mais de 4 dígitos
      */
