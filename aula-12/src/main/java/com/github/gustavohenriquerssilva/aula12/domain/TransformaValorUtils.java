@@ -14,7 +14,7 @@ import java.util.Map;
  * 
  * @author Gustavo Henrique Rodrigues Santos Silva
  */
-public final class TransformaValorUtils {
+public class TransformaValorUtils {
 
     private int unidade;
     private int dezena;

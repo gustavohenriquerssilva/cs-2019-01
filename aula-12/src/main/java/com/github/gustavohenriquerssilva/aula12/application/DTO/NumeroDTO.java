@@ -1,4 +1,4 @@
-package com.github.gustavohenriquerssilva.aula12.application.DTO;
+package com.github.gustavohenriquerssilva.aula12.application.dto;
 
 /**
  * Data Transfer Object (DTO) usado para transferir dados entre subsistemas de

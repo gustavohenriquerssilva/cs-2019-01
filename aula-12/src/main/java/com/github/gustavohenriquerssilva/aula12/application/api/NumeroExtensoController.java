@@ -6,9 +6,8 @@
 
 package com.github.gustavohenriquerssilva.aula12.application.api;
 
-import com.github.gustavohenriquerssilva.aula12.application.DTO.NumeroDTO;
+import com.github.gustavohenriquerssilva.aula12.application.dto.NumeroDTO;
 import com.github.gustavohenriquerssilva.aula12.domain.TransformaValorUtils;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
