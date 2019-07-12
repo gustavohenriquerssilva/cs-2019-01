@@ -8,15 +8,12 @@ package com.github.gustavohenriquerssilva.aula12.application.api;
 
 import com.github.gustavohenriquerssilva.aula12.application.DTO.NumeroDTO;
 import com.github.gustavohenriquerssilva.aula12.domain.TransformaValorUtils;
-import com.github.gustavohenriquerssilva.aula12.domain.TransformaValorUtils;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @RestController
 public class NumeroExtensoController {
@@ -32,7 +29,7 @@ public class NumeroExtensoController {
     @RequestMapping("ds")
 
     /**
-     * Obtém objeto que informa o numero por extenso.
+     * Obtém objeto que informa o número por extenso.
      *
      * @param numeroParam O número informada na tela.
      *
@@ -41,15 +38,15 @@ public class NumeroExtensoController {
      * @throws IllegalArgumentException Se número contiver mais de 4 dígitos
      */
     public static NumeroDTO numeroExtenso(
-            @RequestParam(value = "numero", defaultValue = "não fornecida") String numeroParam) {
+            @RequestParam(value = "numero", defaultValue = "não fornecida") final String numeroParam) {
 
-        String numero = numeroParam;
-        // Se data não é fornecida, ou é inválida, use o dia corrente.
         if (numeroParam.length() > 4) {
             throw new IllegalArgumentException("Valor informado contém mais de 4 dígitos");
         }
 
-        String numeroPorExtenso = TransformaValorUtils.getValorPorExtenso(numero);
+        final int numero = Integer.parseInt(numeroParam);
+        TransformaValorUtils transValor = new TransformaValorUtils();
+        String numeroPorExtenso = transValor.getValorPorExtenso(numero);
 
         return new NumeroDTO(numeroPorExtenso);
     }
