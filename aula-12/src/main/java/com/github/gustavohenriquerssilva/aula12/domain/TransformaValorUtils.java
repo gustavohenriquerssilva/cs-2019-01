@@ -16,25 +16,26 @@ import java.util.Map;
  */
 public class TransformaValorUtils {
 
-    private int unidade;
-    private int dezena;
-    private int centena;
-    private int milhar;
+    private static int unidade;
+    private static int dezena;
+    private static int centena;
+    private static int milhar;
 
     /**
      * Obtém o número por extenso
      *
      * @param numero Número informado na tela. Valor entre 0 e 9999, inclusive.
+     * 
      * @return Número por extenso. O valor 2 será dois, para 20 será vinte.
      * 
      * @throws IllegalArgumentException Se número contiver mais de 4 dígitos
      */
-    public String getValorPorExtenso(final int numero) {
+    public static String getValorPorExtenso(final int numero) {
 
         int qtdDigitos = obtenhaQtdDigitos(numero);
 
-        if (qtdDigitos > 4) {
-            throw new IllegalArgumentException("Valor informado contém mais de 4 dígitos");
+        if (numero > 9999 || numero < 0) {
+            throw new IllegalArgumentException("Valor informado deve estar entre 0 e 9999");
         }
 
         Map<String, String> valores = obtenhaDicionario();
@@ -47,19 +48,14 @@ public class TransformaValorUtils {
         String valor4 = "";
 
         if (dezena == 1) {
-            valor2 = valores.get(String.valueOf("-" + this.unidade)) == null ? "" 
-                        : valores.get(String.valueOf("-" + this.unidade));
+            valor2 = valores.get(String.valueOf("-" + unidade));
         } else {
-            valor1 = valores.get(String.valueOf(this.unidade)) == null ? "" 
-                        : valores.get(String.valueOf(this.unidade));
-            valor2 = valores.get(String.valueOf(this.dezena + "0")) == null ? ""
-                        : valores.get(String.valueOf(this.dezena + "0"));
+            valor1 =  valores.get(String.valueOf(unidade));
+            valor2 = valores.get(String.valueOf(dezena + "0"));
         }
 
-        valor3 = valores.get(String.valueOf(this.centena + "00")) == null ? ""
-                        : valores.get(String.valueOf(this.centena + "00"));
-        valor4 = valores.get(String.valueOf(numero / 1000)) == null ? ""
-                        : valores.get(String.valueOf(numero / 1000));
+        valor3 = valores.get(String.valueOf(centena + "00"));
+        valor4 = valores.get(String.valueOf(numero / 1000));
 
         switch (qtdDigitos) {
         case 1:
@@ -76,51 +72,50 @@ public class TransformaValorUtils {
 
     }
 
-    private void adicionaUnidades(final int numero) {
+    private static void adicionaUnidades(final int numero) {
         unidade = numero % 10;
         dezena = (numero / 10) % 10;
         centena = (numero / 100) % 10;
         milhar = (numero / 1000) % 10;
     }
 
-    private String obtemValorDoisDig(final String valor1, final String valor2) {
-        if (this.dezena == 1)
+    private static String obtemValorDoisDig(final String valor1, final String valor2) {
+        if (dezena == 1)
             return valor2;
-        if (this.dezena == 0)
+        if (dezena == 0)
             return valor1;
-        if (this.unidade == 0)
+        if (unidade == 0)
             return valor2;
-        if (this.unidade == 0 && this.dezena == 0)
-            return "zero";
+
         return valor2 + " e " + valor1;
     }
 
-    private String obtemValorTresDig(final String valor1, final String valor2, final String valor3) {
-        if (this.unidade == 0 && this.dezena == 0)
+    private static String obtemValorTresDig(final String valor1, final String valor2, final String valor3) {
+        if (unidade == 0 && dezena == 0 && centena == 1)
+            return "cem";
+        if (unidade == 0 && dezena == 0)
             return valor3;
-        if (this.unidade == 0 && this.dezena == 0 && this.centena == 0)
-            return "zero";
-        if(this.centena == 0)
+
+        if (centena == 0)
             return obtemValorDoisDig(valor1, valor2);
         return valor3 + " e " + obtemValorDoisDig(valor1, valor2);
     }
 
-    private String obtemValorQuatroDig(String valor1, String valor2, String valor3, String valor4) {
-        if (this.unidade == 0 && this.dezena == 0 && this.centena == 0)
-            return valor4 + "mil";
-        if (this.unidade == 0 && this.dezena == 0 && this.centena == 0 && this.milhar == 0)
-            return "zero";
-        if(this.milhar == 1)
-            return "mill e " + obtemValorTresDig(valor1, valor2, valor3);
-        if(this.milhar == 0)
-            return obtemValorTresDig(valor1, valor2, valor3);
-        return valor4 + " e " + obtemValorTresDig(valor1, valor2, valor3) + "mil";
+    private static String obtemValorQuatroDig(String valor1, String valor2, String valor3, String valor4) {
+        if (unidade == 0 && dezena == 0 && centena == 0)
+            return valor4 + " mil";
+        if (milhar == 1)
+            return "mil e " + obtemValorTresDig(valor1, valor2, valor3);
+
+        return valor4 + " mil e " + obtemValorTresDig(valor1, valor2, valor3);
     }
 
     public static int obtenhaQtdDigitos(int n) {
         n = Math.abs(n);
-		if (n == 0) return 1;
-		else return (int) (Math.log10 (n) + 1); 
+        if (n == 0)
+            return 1;
+        else
+            return (int) (Math.log10(n) + 1);
     }
 
     private static Map<String, String> obtenhaDicionario() {
@@ -148,13 +143,13 @@ public class TransformaValorUtils {
         valores.put("-9", new String("dezenove"));
         valores.put("20", new String("vinte"));
         valores.put("30", new String("trinta"));
-        valores.put("40", new String("quarente"));
+        valores.put("40", new String("quarenta"));
         valores.put("50", new String("cinquenta"));
         valores.put("60", new String("sessenta"));
         valores.put("70", new String("setenta"));
         valores.put("80", new String("oitenta"));
         valores.put("90", new String("noventa"));
-        valores.put("100", new String("cem"));
+        valores.put("100", new String("cento"));
         valores.put("200", new String("duzentos"));
         valores.put("300", new String("trezentos"));
         valores.put("400", new String("quatrocentos"));
