@@ -50,7 +50,7 @@ public class TransformaValorUtils {
         if (dezena == 1) {
             valor2 = valores.get(String.valueOf("-" + unidade));
         } else {
-            valor1 =  valores.get(String.valueOf(unidade));
+            valor1 = valores.get(String.valueOf(unidade));
             valor2 = valores.get(String.valueOf(dezena + "0"));
         }
 
@@ -111,11 +111,7 @@ public class TransformaValorUtils {
     }
 
     public static int obtenhaQtdDigitos(int n) {
-        n = Math.abs(n);
-        if (n == 0)
-            return 1;
-        else
-            return (int) (Math.log10(n) + 1);
+        return Integer.toString(n).length();
     }
 
     private static Map<String, String> obtenhaDicionario() {
