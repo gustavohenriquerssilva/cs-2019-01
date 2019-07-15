@@ -26,7 +26,7 @@ function atualizaDiferenca() {
 }
 
 /*
- * Obtém URL montada para a requisição.
+ * Obtém URL montada para a requisição do serviço.
  *
  * @param {String} dataInicial data inicial informada na tela
  * @param {String} dataFinal data final informada na tela
@@ -47,8 +47,9 @@ function data() {
 
 /* 
  *Funções para integração (satisfazer contrato do servidor)
+ *
  * @param resposta É uma DiferencaDTO que contém a diferença
- * entre as duas datas como um JSON do tipo '{"diferencaDias":0}'
+ * entre as duas datas como um JSON do tipo '{"diferencaDias":1}'
  * 
  * @returns a diferença calculada pela requisição
  */
