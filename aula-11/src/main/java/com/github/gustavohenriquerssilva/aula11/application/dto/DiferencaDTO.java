@@ -2,9 +2,8 @@
 package com.github.gustavohenriquerssilva.aula11.application.dto;
 
 /**
- * Data Transfer Object (dto) usado para transferir
- * dados entre subsistemas de um software.
- * Criada exclusivamente para ilustrar a resposta via RESTFul API.
+ * Data Transfer Object (dto) usado para transferir dados entre subsistemas de
+ * um software. Criada exclusivamente para ilustrar a resposta via RESTFul API.
  *
  * @author Gustavo Henrique Rodrigues Santos Silva
  */

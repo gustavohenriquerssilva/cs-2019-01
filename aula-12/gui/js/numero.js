@@ -4,8 +4,9 @@
 const PATH = "http://localhost:8080/ds?";
 
 /*
- * Obtém número por extenso
- * Interage com o servidor e exibe o número por extenso para o usuário.
+ * Executa uma requisição XMLHTTP e obtém número um número 
+ * e o retorna por extenso. O resultado é exibido no campo
+ * resultado
  */
 function atualizaNumeroExtenso() {
     var xhttp = new XMLHttpRequest();
@@ -18,23 +19,36 @@ function atualizaNumeroExtenso() {
 
     let numero = document.getElementById("numero").value;
 
-    xhttp.open("GET", montaURL(numero), true);
+    xhttp.open("GET", obtenhaUrlMontada(numero), true);
     xhttp.send();
 }
 
 /**
- * Obtém URL montada.
+ * Obtém URL montada para a requisição do serviço.
  * 
  * @param {String} data Numero informado na tela que será passado para extenso
  * 
- * @returns url concatenada
+ * @returns url concatenada para a requisição XML
  */
-function montaURL(numero) {
+function obtenhaUrlMontada(numero) {
     return PATH + "numero=" + numero;
 }
 
-// Funções para integração (satisfazer contrato do servidor)
-
+/** 
+ *Funções para integração (satisfazer contrato do servidor)
+ *
+ * @param resposta É uma NumeroDTO que contém o número
+ * por extenso como um JSON do tipo '{"numero":um}'
+ * 
+ * @returns o número em extenso calculado pela requisição
+ */
 function extraiNumeroPorExtenso(resposta) {
     return JSON.parse(resposta).numero;
 }
+
+
+module.exports = {
+    atualizaNumeroExtenso,
+    obtenhaUrlMontada,
+    extraiNumeroPorExtenso,
+};

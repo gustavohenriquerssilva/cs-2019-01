@@ -25,7 +25,7 @@ function atualizaDiferenca() {
     xhttp.send();
 }
 
-/*
+/**
  * Obtém URL montada para a requisição do serviço.
  *
  * @param {String} dataInicial data inicial informada na tela
@@ -45,7 +45,7 @@ function data() {
     document.getElementById("dataFinal").valueAsDate = new Date();
 }
 
-/* 
+/** 
  *Funções para integração (satisfazer contrato do servidor)
  *
  * @param resposta É uma DiferencaDTO que contém a diferença
@@ -58,7 +58,8 @@ function extraiDiferencaEntreDatas(resposta) {
 }
 
 
-/* Recebe o valor da data e retorna uma string com a mesma data, 
+/** 
+ *Recebe o valor da data e retorna uma string com a mesma data, 
  * porém com formato 'dd-mm-aaaa'
  * 
  * @param data É a data informada na tela do tipo date

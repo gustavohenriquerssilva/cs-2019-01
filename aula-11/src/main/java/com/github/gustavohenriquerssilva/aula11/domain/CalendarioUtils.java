@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2018.
- * Fábrica de Software - Instituto de Informática (UFG)
- * Creative Commons Attribution 4.0 International License.
- */
-
 package com.github.gustavohenriquerssilva.aula11.domain;
 
 import java.time.DateTimeException;
@@ -33,13 +27,11 @@ public final class CalendarioUtils {
      *
      * @throws IllegalArgumentException Se data for inválida.
      */
-    public static long getDiferencaEntreDatas(final LocalDate dataInicial,
-                                              final LocalDate dataFinal) {
+    public static long getDiferencaEntreDatas(final LocalDate dataInicial, final LocalDate dataFinal) {
 
         try {
             return Math.abs(ChronoUnit.DAYS.between(dataInicial, dataFinal));
-        } catch (IllegalArgumentException | DateTimeException
-                | ArithmeticException | NullPointerException ex) {
+        } catch (IllegalArgumentException | DateTimeException | ArithmeticException | NullPointerException ex) {
             throw new IllegalArgumentException("Data inválida", ex);
         }
     }

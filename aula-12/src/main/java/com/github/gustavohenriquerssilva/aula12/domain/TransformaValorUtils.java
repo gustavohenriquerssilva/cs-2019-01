@@ -1,34 +1,36 @@
-/*
- * Copyright (c) 2018.
- * Fábrica de Software - Instituto de Informática (UFG)
- * Creative Commons Attribution 4.0 International License.
- */
-
 package com.github.gustavohenriquerssilva.aula12.domain;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Implementa métodos que transformam um valor para outro
+ * Implementa métodos que transformam um valor para outro.
  * 
  * @author Gustavo Henrique Rodrigues Santos Silva
  */
 public class TransformaValorUtils {
 
+    // Representa a unidade considerando o valor individual,
+    // isolado ou sozinho.
     private static int unidade;
+
+    // Representa um grupo de 10 unidades.
     private static int dezena;
+
+    // Representa um grupo de 100 unidades.
     private static int centena;
+
+    // Representa um grupo de 1000 unidades.
     private static int milhar;
 
     /**
-     * Obtém o número por extenso
+     * Obtém o número por extenso.
      *
      * @param numero Número informado na tela. Valor entre 0 e 9999, inclusive.
      * 
      * @return Número por extenso. O valor 2 será dois, para 20 será vinte.
      * 
-     * @throws IllegalArgumentException Se número contiver mais de 4 dígitos
+     * @throws IllegalArgumentException Se número for menor que 0 ou maior que 9999.
      */
     public static String getValorPorExtenso(final int numero) {
 
@@ -42,36 +44,42 @@ public class TransformaValorUtils {
 
         adicionaUnidades(numero);
 
-        String valor1 = "";
-        String valor2 = "";
-        String valor3 = "";
-        String valor4 = "";
+        String unidadeExtenso = "";
+        String dezenaExtenso = "";
+        String centenaExtenso = "";
+        String milharExtenso = "";
 
         if (dezena == 1) {
-            valor2 = valores.get(String.valueOf("-" + unidade));
+            dezenaExtenso = valores.get(String.valueOf("-" + unidade));
         } else {
-            valor1 = valores.get(String.valueOf(unidade));
-            valor2 = valores.get(String.valueOf(dezena + "0"));
+            unidadeExtenso = valores.get(String.valueOf(unidade));
+            dezenaExtenso = valores.get(String.valueOf(dezena + "0"));
         }
 
-        valor3 = valores.get(String.valueOf(centena + "00"));
-        valor4 = valores.get(String.valueOf(numero / 1000));
+        centenaExtenso = valores.get(String.valueOf(centena + "00"));
+        milharExtenso = valores.get(String.valueOf(numero / 1000));
 
         switch (qtdDigitos) {
         case 1:
-            return valor1;
+            return unidadeExtenso;
 
         case 2:
-            return obtemValorDoisDig(valor1, valor2);
+            return obtemValorDoisDig(unidadeExtenso, dezenaExtenso);
 
         case 3:
-            return obtemValorTresDig(valor1, valor2, valor3);
+            return obtemValorTresDig(unidadeExtenso, dezenaExtenso, centenaExtenso);
         }
 
-        return obtemValorQuatroDig(valor1, valor2, valor3, valor4);
+        return obtemValorQuatroDig(unidadeExtenso, dezenaExtenso, centenaExtenso, milharExtenso);
 
     }
 
+    /**
+     * Método recebe um número inteiro, e adiciona as unidades dele nas variáveis
+     * globais
+     * 
+     * @param numero Um número inteiro.
+     */
     private static void adicionaUnidades(final int numero) {
         unidade = numero % 10;
         dezena = (numero / 10) % 10;
@@ -79,41 +87,78 @@ public class TransformaValorUtils {
         milhar = (numero / 1000) % 10;
     }
 
-    private static String obtemValorDoisDig(final String valor1, final String valor2) {
+    /**
+     * Método recebe um números inteiros, e retorna uma string com o número escrito
+     * por extenso. Caso valor para classe contenha 2 dígitos
+     * 
+     * @param unidadeExtenso Valor unidade
+     * @param dezenaExtenso  Valor dezena
+     * @return Uma string com o número escrito em extenso.
+     */
+    private static String obtemValorDoisDig(final String unidadeExtenso, final String dezenaExtenso) {
         if (dezena == 1)
-            return valor2;
+            return dezenaExtenso;
         if (dezena == 0)
-            return valor1;
+            return unidadeExtenso;
         if (unidade == 0)
-            return valor2;
+            return dezenaExtenso;
 
-        return valor2 + " e " + valor1;
+        return dezenaExtenso + " e " + unidadeExtenso;
     }
 
-    private static String obtemValorTresDig(final String valor1, final String valor2, final String valor3) {
+    /**
+     * Método recebe um números inteiros, e retorna uma string com o número escrito
+     * por extenso. Caso valor para classe contenha 3 dígitos
+     * 
+     * @param unidadeExtenso Valor unidade
+     * @param dezenaExtenso  Valor dezena
+     * @param centenaExtenso Valor centena
+     * @return Uma string com o número escrito em extenso.
+     */
+    private static String obtemValorTresDig(final String unidadeExtenso, final String dezenaExtenso,
+            final String centenaExtenso) {
         if (unidade == 0 && dezena == 0 && centena == 1)
             return "cem";
         if (unidade == 0 && dezena == 0)
-            return valor3;
+            return centenaExtenso;
 
         if (centena == 0)
-            return obtemValorDoisDig(valor1, valor2);
-        return valor3 + " e " + obtemValorDoisDig(valor1, valor2);
+            return obtemValorDoisDig(unidadeExtenso, dezenaExtenso);
+        return centenaExtenso + " e " + obtemValorDoisDig(unidadeExtenso, dezenaExtenso);
     }
 
-    private static String obtemValorQuatroDig(String valor1, String valor2, String valor3, String valor4) {
+    /**
+     * Método recebe um números inteiros, e retorna uma string com o número escrito
+     * por extenso. Caso valor para classe contenha 4 dígitos
+     * 
+     * @param unidadeExtenso Valor unidade
+     * @param dezenaExtenso  Valor dezena
+     * @param centenaExtenso Valor centena
+     * @param milharExtenso  Valor milhar
+     * @return Uma string com o número escrito em extenso.
+     */
+    private static String obtemValorQuatroDig(String unidadeExtenso, String dezenaExtenso, String centenaExtenso,
+            String milharExtenso) {
         if (unidade == 0 && dezena == 0 && centena == 0)
-            return valor4 + " mil";
+            return milharExtenso + " mil";
         if (milhar == 1)
-            return "mil e " + obtemValorTresDig(valor1, valor2, valor3);
+            return "mil e " + obtemValorTresDig(unidadeExtenso, dezenaExtenso, centenaExtenso);
 
-        return valor4 + " mil e " + obtemValorTresDig(valor1, valor2, valor3);
+        return milharExtenso + " mil e " + obtemValorTresDig(unidadeExtenso, dezenaExtenso, centenaExtenso);
     }
 
-    public static int obtenhaQtdDigitos(int n) {
-        return Integer.toString(n).length();
+    /**
+     * Obtém quantidade de dígitos que o número contém
+     * 
+     * @param numero Número inteiro
+     * @return Quantidade de dígitos do número passado O valor 10 será 2, para 100
+     *         será 3.
+     */
+    public static int obtenhaQtdDigitos(int numero) {
+        return Integer.toString(numero).length();
     }
 
+    // Mapeia os nomes por extenso de possíveis números passados
     private static Map<String, String> obtenhaDicionario() {
         Map<String, String> valores = new HashMap<String, String>();
 

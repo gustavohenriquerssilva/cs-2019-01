@@ -18,8 +18,7 @@ public class NumeroDTO {
      *
      * @param numero Valor que deve ser armazenado
      */
-    public NumeroDTO(final String numero)
-    {
+    public NumeroDTO(final String numero) {
         this.numero = numero;
     }
 
