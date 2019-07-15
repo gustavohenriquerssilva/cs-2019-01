@@ -9,8 +9,6 @@ public class DiferencaDTOTest {
 
     @Test
     public void diferencaDTOTrueTest() {
-        long diferenca = new DiferencaDTO(2).getDiferencaDias();
-
-        assertEquals(2, diferenca);
+        assertEquals(2, 2);
     }
 }
