@@ -27,11 +27,13 @@ public final class CalendarioUtils {
      *
      * @throws IllegalArgumentException Se data for inválida.
      */
-    public static long getDiferencaEntreDatas(final LocalDate dataInicial, final LocalDate dataFinal) {
+    public static long getDiferencaEntreDatas(
+        final LocalDate dataInicial, final LocalDate dataFinal) {
 
         try {
             return Math.abs(ChronoUnit.DAYS.between(dataInicial, dataFinal));
-        } catch (IllegalArgumentException | DateTimeException | ArithmeticException | NullPointerException ex) {
+        } catch (IllegalArgumentException | DateTimeException 
+            | ArithmeticException | NullPointerException ex) {
             throw new IllegalArgumentException("Data inválida", ex);
         }
     }

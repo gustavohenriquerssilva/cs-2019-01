@@ -46,7 +46,6 @@ function extraiNumeroPorExtenso(resposta) {
     return JSON.parse(resposta).numero;
 }
 
-
 module.exports = {
     atualizaNumeroExtenso,
     obtenhaUrlMontada,

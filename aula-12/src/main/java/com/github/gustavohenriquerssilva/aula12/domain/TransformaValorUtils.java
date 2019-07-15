@@ -36,7 +36,9 @@ public class TransformaValorUtils {
 
         int qtdDigitos = obtenhaQtdDigitos(numero);
 
-        if (numero > 9999 || numero < 0) {
+        final int valorMaximo = 9999;
+        final int valorMinimo = 0;
+        if (numero > valorMaximo || numero < valorMinimo) {
             throw new IllegalArgumentException("Valor informado deve estar entre 0 e 9999");
         }
 
@@ -70,7 +72,8 @@ public class TransformaValorUtils {
             return obtemValorTresDig(unidadeExtenso, dezenaExtenso, centenaExtenso);
         }
 
-        return obtemValorQuatroDig(unidadeExtenso, dezenaExtenso, centenaExtenso, milharExtenso);
+        return obtemValorQuatroDig(unidadeExtenso, dezenaExtenso,
+                                centenaExtenso, milharExtenso);
 
     }
 
@@ -96,12 +99,15 @@ public class TransformaValorUtils {
      * @return Uma string com o número escrito em extenso.
      */
     private static String obtemValorDoisDig(final String unidadeExtenso, final String dezenaExtenso) {
-        if (dezena == 1)
+        if (dezena == 1) {
             return dezenaExtenso;
-        if (dezena == 0)
+        }
+        if (dezena == 0) {
             return unidadeExtenso;
-        if (unidade == 0)
+        }
+        if (unidade == 0) {
             return dezenaExtenso;
+        }
 
         return dezenaExtenso + " e " + unidadeExtenso;
     }
@@ -137,7 +143,7 @@ public class TransformaValorUtils {
      * @param milharExtenso  Valor milhar
      * @return Uma string com o número escrito em extenso.
      */
-    private static String obtemValorQuatroDig(String unidadeExtenso, String dezenaExtenso, String centenaExtenso,
+    private static String obtemValorQuatroDig(final String unidadeExtenso, final String dezenaExtenso, String centenaExtenso,
             String milharExtenso) {
         if (unidade == 0 && dezena == 0 && centena == 0)
             return milharExtenso + " mil";
@@ -154,7 +160,7 @@ public class TransformaValorUtils {
      * @return Quantidade de dígitos do número passado O valor 10 será 2, para 100
      *         será 3.
      */
-    public static int obtenhaQtdDigitos(int numero) {
+    public static int obtenhaQtdDigitos(final int numero) {
         return Integer.toString(numero).length();
     }
 
