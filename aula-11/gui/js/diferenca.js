@@ -4,14 +4,16 @@
 const PATH = "http://localhost:9875/ds?dataInicial=";
 
 /*
- * Obtém data inicial e final e retorna a diferença em dias para essas datas.
+ * Executa uma requisição XMLHTTP e obtém data inicial
+ * e final e retorna a diferença em dias para essas datas.
+ * O resultado é exibido no campo resultado
  */
 function atualizaDiferenca() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let diferenca = extraiDiferencaEntreDatas(xhttp.responseText);
-            document.getElementById("resultado").innerHTML = diferencaDias;
+            document.getElementById("resultado").innerHTML = diferenca;
         }
     };
 
@@ -19,47 +21,49 @@ function atualizaDiferenca() {
     let dataInicial = formatarData(di);
     let df = document.getElementById("dataFinal").value;
     let dataFinal = formatarData(df);
-    xhttp.open("GET", monteURL(dataInicial, dataFinal), true);
+    xhttp.open("GET", obtenhaUrlMontada(dataInicial, dataFinal), true);
     xhttp.send();
 }
 
 /*
- * Obtém URL montada.
+ * Obtém URL montada para a requisição.
  *
  * @param {String} dataInicial data inicial informada na tela
  * @param {String} dataFinal data final informada na tela
  *
- * @returns url concatenada
+ * @returns url concatenada para a requisição XML
  */
-function monteURL(dataInicial, dataFinal) {
+function obtenhaUrlMontada(dataInicial, dataFinal) {
     return PATH + dataInicial + "&dataFinal=" + dataFinal;
 }
 
 /*
- *  
+ *  Adiciona a data atual para inserir nos dois campos de data
  */
 function data() {
     document.getElementById("dataInicial").valueAsDate = new Date();
     document.getElementById("dataFinal").valueAsDate = new Date();
 }
 
-// Funções para integração (satisfazer contrato do servidor)
-
+/* 
+ *Funções para integração (satisfazer contrato do servidor)
+ * @param resposta É uma DiferencaDTO que contém a diferença
+ * entre as duas datas como um JSON do tipo '{"diferencaDias":0}'
+ * 
+ * @returns a diferença calculada pela requisição
+ */
 function extraiDiferencaEntreDatas(resposta) {
     return JSON.parse(resposta).diferencaDias;
 }
 
-// Dia ou mês deve possuir dois dígitos
-function formataDiaOuMes(n) {
-    return ("00" + n).substr(-2, 2);
-}
 
-// Ano deve possuir quatro dígitos
-function formataAno(n) {
-    return ("0000" + n).substr(-4, 4);
-}
-
-// ENTRADA: ano-mes-dia SAIDA: dd-mm-yyyy
+/* Recebe o valor da data e retorna uma string com a mesma data, 
+ * porém com formato 'dd-mm-aaaa'
+ * 
+ * @param data É a data informada na tela do tipo date
+ * 
+ * @returns String com a data em no formato 'dd/mm/aaaa'
+ */
 function formatarData(data) {
     let [a, m, d] = data.split("-");
 
