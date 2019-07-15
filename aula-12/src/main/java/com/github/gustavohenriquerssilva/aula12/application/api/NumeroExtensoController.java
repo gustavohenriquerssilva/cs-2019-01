@@ -23,7 +23,7 @@ public class NumeroExtensoController {
     @CrossOrigin
     @RequestMapping("ds")
     public static NumeroDTO numeroExtenso(
-            @RequestParam(value = "numero", defaultValue = "não fornecida") final String numeroParam) {
+            @RequestParam("numero") final String numeroParam) {
 
         validaEntrada(numeroParam);
 

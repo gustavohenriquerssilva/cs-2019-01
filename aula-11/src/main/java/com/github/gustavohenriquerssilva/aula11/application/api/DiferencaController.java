@@ -31,8 +31,8 @@ public class DiferencaController {
     @CrossOrigin
     @RequestMapping("ds")
     public static DiferencaDTO diferencaDias(
-            @RequestParam(value = "dataInicial", defaultValue = "não fornecida") final String di,
-            @RequestParam(value = "dataFinal", defaultValue = "não fornecida") final String df) {
+            @RequestParam("dataInicial") final String di,
+            @RequestParam("dataFinal") final String df) {
 
         final LocalDate dataInicial = localDateFromString(di);
         final LocalDate dataFinal = localDateFromString(df);
