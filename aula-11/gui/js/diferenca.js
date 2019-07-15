@@ -73,3 +73,11 @@ function formatarData(data) {
 
     return `${d}-${m}-${a}`;
 }
+
+module.exports = {
+    atualizaDiferenca,
+    data,
+    extraiDiferencaDaResposta,
+    formatarData,
+    obtenhaUrlMontada
+};
