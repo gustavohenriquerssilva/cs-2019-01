@@ -64,7 +64,7 @@ public class DiferencaController {
      * @return Instância de {@link LocalDate} ou {@code null}, se a sequência
      * não está no formato esperado (por aula11, "01-01-2018")
      */
-    public static LocalDate localDateFromString(final String data) {
+    protected static LocalDate localDateFromString(final String data) {
         try {
             final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             return LocalDate.parse(data, fmt);

@@ -18,26 +18,29 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DiferencaControllerTest {
 
+
+    @Test
+    public void diferencaDiasControlleZeroDiasTest() {
+        long diferenca = DiferencaController.diferencaDias("12-05-2019",
+                "12-05-2019").getDiferencaDias();
+
+        assertEquals(0, diferenca);
+    }
+
     @Test
     public void diferencaDiasControlleDiasTest() {
-        long diferencaEsperada = new DiferencaDTO(2).getDiferencaDias();
         long diferenca = DiferencaController.diferencaDias("10-05-2019",
                 "12-05-2019").getDiferencaDias();
 
-        assertEquals(diferencaEsperada, diferenca);
+        assertEquals(2, diferenca);
     }
 
     @Test
-    public void localDateFromStringTest() {
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate dataFormatada = LocalDate.parse("10-05-2019", fmt);
-        assertEquals(dataFormatada, DiferencaController.localDateFromString("10-05-2019"));
-    }
+    public void diferencaDiasControlleDiasContrariaTest() {
+        long diferenca = DiferencaController.diferencaDias("12-05-2019",
+                "10-05-2019").getDiferencaDias();
 
-    @Test
-    public void localDateFromStringNuloTest() {
-        assertEquals(null,
-                DiferencaController.localDateFromString(null));
+        assertEquals(2, diferenca);
     }
 
     @Test

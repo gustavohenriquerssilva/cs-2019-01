@@ -6,7 +6,6 @@
 
 package com.github.gustavohenriquerssilva.aula11.domain;
 
-import com.github.gustavohenriquerssilva.aula11.application.api.DiferencaController;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -16,15 +15,30 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalendarioUtilsTest {
 
+
+    @Test
+    public void diferencaDiasZero() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dataIncial = LocalDate.parse("12-05-2019", fmt);
+        LocalDate dataFinal = LocalDate.parse("12-05-2019", fmt);
+        assertEquals(0, CalendarioUtils.getDiferencaEntreDatas(dataIncial, dataFinal));
+    }
+
+    @Test
+    public void diferencaDiasContrario() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dataIncial = LocalDate.parse("12-05-2019", fmt);
+        LocalDate dataFinal = LocalDate.parse("10-05-2019", fmt);
+        assertEquals(2, CalendarioUtils.getDiferencaEntreDatas(dataIncial, dataFinal));
+    }
+
     @Test
     public void diferencaDiasCorreto() {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate dataIncial = LocalDate.parse("10-05-2019", fmt);
         LocalDate dataFinal = LocalDate.parse("12-05-2019", fmt);
-        int diferenca = 2;
-        assertEquals(diferenca, CalendarioUtils.getDiferencaEntreDatas(dataIncial, dataFinal));
+        assertEquals(2, CalendarioUtils.getDiferencaEntreDatas(dataIncial, dataFinal));
     }
-
 
     @Test
     public void CalendarioPrimeiroNuloTest() {
