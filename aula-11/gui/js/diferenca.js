@@ -1,7 +1,7 @@
 /*
  * Path para a requisição (URL)
  */
-const PATH = "http://localhost:9875/ds?dataInicial=";
+const PATH = "http://localhost:8080/ds?dataInicial=";
 
 /*
  * Executa uma requisição XMLHTTP e obtém data inicial
@@ -76,10 +76,11 @@ function formatarData(data) {
     return `${d}-${m}-${a}`;
 }
 
-module.exports = {
-    atualizaDiferenca,
-    data,
-    extraiDiferencaDaResposta,
-    formatarData,
-    obtenhaUrlMontada
-};
+// Dia ou mês deve possuir dois dígitos
+function formataDiaOuMes(n) {
+    return ("00" + n).substr(-2, 2);
+}
+// Ano deve possuir quatro dígitos
+function formataAno(n) {
+    return ("0000" + n).substr(-4,4);
+}
